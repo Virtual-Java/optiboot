@@ -1,0 +1,1237 @@
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc --version | head -1
+avr-gcc (GCC) 11.1.0
+#define OPTIBOOT_MAJVER 9
+#define OPTIBOOT_MINVER 2
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny402.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny402 -mmcu=attiny402 -o optiboot_attiny402.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny412.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A6 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny412 -mmcu=attiny412 -o optiboot_attiny412.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny804.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny804 -mmcu=attiny804 -o optiboot_attiny804.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny814.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny814 -mmcu=attiny814 -o optiboot_attiny814.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny406.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny406 -mmcu=attiny406 -o optiboot_attiny406.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny816.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny816 -mmcu=attiny816 -o optiboot_attiny816.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny1617.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1617 -mmcu=attiny1617 -o optiboot_attiny1617.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny3217.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny3217 -mmcu=attiny3217 -o optiboot_attiny3217.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny402.hex UARTTX=A1 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny402 -mmcu=attiny402 -o optiboot_attiny402.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny814.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny814 -mmcu=attiny814 -o optiboot_attiny814.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny3216.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny3216 -mmcu=attiny3216 -o optiboot_attiny3216.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny1607.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1607 -mmcu=attiny1607 -o optiboot_attiny1607.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny1607.hex UARTTX=B2 TIMEOUT=8 LED=B7 LED_INVERT=1
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B7  -DLED_INVERT=1 -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1607 -mmcu=attiny1607 -o optiboot_attiny1607.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f Makefile.mega0 optiboot_attiny416.hex UARTTX=A1 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=57600
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=A1 -DBAUD_RATE=57600        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny416 -mmcu=attiny416 -o optiboot_attiny416.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc --version | head -1
+avr-gcc (GCC) 11.1.0
+#define OPTIBOOT_MAJVER 9
+#define OPTIBOOT_MINVER 2
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega809 -mmcu=atmega809 -o optiboot_atmega809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega1609.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega1609 -mmcu=atmega1609 -o optiboot_atmega1609.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega3209.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=C4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega3209 -mmcu=atmega3209 -o optiboot_atmega3209.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4808.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=F0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4808 -mmcu=atmega4808 -o optiboot_atmega4808.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=F4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex UARTTX=C0 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=115200
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex UARTTX=B4 TIMEOUT=1 LED=D6 RESETPIN=1
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -DRSTPIN=1 -DWDTTIME=1  -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex UARTTX=A4 TIMEOUT=1 LED=A7 RESETPIN=1
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -DRSTPIN=1 -DWDTTIME=1  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=A4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex UARTTX=B0 TIMEOUT=8 LED=F5 LED_INVERT=1
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=F5  -DLED_INVERT=1 -DUARTTX=B0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f Makefile.mega0 optiboot_atmega4809.hex UARTTX=C0 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=115200
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+
+
+OUTPUT Terminal:
+...
+  674 | #define MYPMUX_REG PORTMUX.USARTROUTEA
+      |                    ^~~~~~~
+optiboot_x.c:418:3: note: in expansion of macro 'MYPMUX_REG'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |   ^~~~~~~~~~
+pin_defs_x.h:710:28: error: 'PORTMUX_USART3_ALT1_gc' undeclared (first use in this function)
+  710 | #  define MYUART_PMUX_VAL (PORTMUX_USART3_ALT1_gc)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:418:16: note: in expansion of macro 'MYUART_PMUX_VAL'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |                ^~~~~~~~~~~~~~~
+optiboot_x.c:420:8: error: 'FUSE_OSCCFG' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |        ^~~~~~~~~~~
+optiboot_x.c:420:22: error: 'FUSE_FREQSEL_gm' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                      ^~~~~~~~~~~~~~~
+optiboot_x.c:420:42: error: 'FREQSEL_16MHZ_gc' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                                          ^~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:707:18: error: 'USART3' undeclared (first use in this function)
+  707 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:421:5: note: in expansion of macro 'MYUART'
+  421 |     MYUART.BAUD = BAUD_SETTING_16;
+      |     ^~~~~~
+optiboot_x.c:426:19: error: 'USART_CHSIZE_gm' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:426:37: error: 'USART_CHSIZE_8BIT_gc' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:428:18: error: 'USART_RXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                  ^~~~~~~~~~~~~
+optiboot_x.c:428:34: error: 'USART_TXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                                  ^~~~~~~~~~~~~
+optiboot_x.c:237:20: error: 'WDT_PERIOD_1KCLK_gc' undeclared (first use in this function)
+  237 | # define WDTPERIOD WDT_PERIOD_1KCLK_gc  // 1 second
+      |                    ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:436:18: note: in expansion of macro 'WDTPERIOD'
+  436 |   watchdogConfig(WDTPERIOD);
+      |                  ^~~~~~~~~
+optiboot_x.c:440:3: error: 'LED_PORT' undeclared (first use in this function)
+  440 |   LED_PORT.DIR |= LED;
+      |   ^~~~~~~~
+optiboot_x.c:517:25: error: 'MAPPED_PROGMEM_START' undeclared (first use in this function)
+  517 |         address.word += MAPPED_PROGMEM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:519:25: error: 'MAPPED_EEPROM_START' undeclared (first use in this function)
+  519 |         address.word += MAPPED_EEPROM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:7: warning: implicit declaration of function '_PROTECTED_WRITE_SPM' [-Wimplicit-function-declaration]
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |       ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:28: error: 'NVMCTRL' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                            ^~~~~~~
+optiboot_x.c:532:43: error: 'NVMCTRL_CMD_PAGEERASEWRITE_gc' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:533:32: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                ^~~~~~~~~~~~~~~~
+optiboot_x.c:533:49: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                                 ^~~~~~~~~~~~~~~~~
+optiboot_x.c:561:13: error: 'SIGROW_DEVICEID0' undeclared (first use in this function)
+  561 |       putch(SIGROW_DEVICEID0);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:562:13: error: 'SIGROW_DEVICEID1' undeclared (first use in this function)
+  562 |       putch(SIGROW_DEVICEID1);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:563:13: error: 'SIGROW_DEVICEID2' undeclared (first use in this function)
+  563 |       putch(SIGROW_DEVICEID2);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:567:22: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  567 |       watchdogConfig(WDT_PERIOD_8CLK_gc);
+      |                      ^~~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'putch':
+pin_defs_x.h:707:18: error: 'USART3' undeclared (first use in this function)
+  707 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:604:16: note: in expansion of macro 'MYUART'
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                ^~~~~~
+optiboot_x.c:604:32: error: 'USART_DREIF_bm' undeclared (first use in this function)
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                                ^~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'getch':
+pin_defs_x.h:707:18: error: 'USART3' undeclared (first use in this function)
+  707 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:612:12: note: in expansion of macro 'MYUART'
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |            ^~~~~~
+optiboot_x.c:612:28: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |                            ^~~~~~~~~~~~~~
+optiboot_x.c:616:16: error: 'USART_FERR_bm' undeclared (first use in this function)
+  616 |   if ((flags & USART_FERR_bm) == 0)
+      |                ^~~~~~~~~~~~~
+optiboot_x.c: In function 'verifySpace':
+optiboot_x.c:632:20: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  632 |     watchdogConfig(WDT_PERIOD_8CLK_gc);    // shorten WD timeout
+      |                    ^~~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'flash_led':
+optiboot_x.c:643:5: error: 'LED_PORT' undeclared (first use in this function)
+  643 |     LED_PORT.IN |= LED;
+      |     ^~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:707:18: error: 'USART3' undeclared (first use in this function)
+  707 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:647:11: note: in expansion of macro 'MYUART'
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |           ^~~~~~
+optiboot_x.c:647:27: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |                           ^~~~~~~~~~~~~~
+optiboot_x.c: In function 'watchdogConfig':
+optiboot_x.c:661:9: error: 'WDT' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |         ^~~
+optiboot_x.c:661:22: error: 'WDT_SYNCBUSY_bm' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |                      ^~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:99,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:592,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP_IOREG_gc' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'do_nvmctrl':
+optiboot_x.c:688:18: error: 'NVMCTRL_CMD_gm' undeclared (first use in this function)
+  688 |   if (command <= NVMCTRL_CMD_gm) {
+      |                  ^~~~~~~~~~~~~~
+optiboot_x.c:689:26: error: 'NVMCTRL' undeclared (first use in this function)
+  689 |     _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, command);
+      |                          ^~~~~~~
+optiboot_x.c:690:30: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                              ^~~~~~~~~~~~~~~~
+optiboot_x.c:690:47: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                               ^~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'app':
+optiboot_x.c:772:8: error: 'RSTCTRL' undeclared (first use in this function)
+  772 |   ch = RSTCTRL.RSTFR;
+      |        ^~~~~~~
+optiboot_x.c:775:17: error: 'NVMCTRL_CMD_PAGEBUFCLR_gc' undeclared (first use in this function)
+  775 |   do_nvmctrl(0, NVMCTRL_CMD_PAGEBUFCLR_gc, 0); // reference this function!
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile.mega0:124: optiboot_atmega4809.elf] Fehler 1
+make: *** [Makefile.mega0:185: freeduino4809] Fehler 2
+In file included from optiboot_x.c:118:
+/usr/avr/include/avr/io.h:581:6: warning: #warning "device type not defined" [-Wcpp]
+  581 | #    warning "device type not defined"
+      |      ^~~~~~~
+In file included from /usr/avr/include/avr/io.h:596,
+                 from optiboot_x.c:118:
+optiboot_x.c:141:1: error: unknown type name 'NVM_FUSES_t'
+  141 | FUSES = {
+      | ^~~~~
+optiboot_x.c:142:3: error: field name not in record or union initializer
+  142 |   .WDTCFG = 0,  /* Watchdog Configuration */
+      |   ^
+optiboot_x.c:142:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:3: error: field name not in record or union initializer
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |   ^
+optiboot_x.c:143:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:13: error: 'FUSE_BODCFG_DEFAULT' undeclared here (not in a function)
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |             ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:143:13: warning: excess elements in scalar initializer
+optiboot_x.c:143:13: note: (near initialization for '__fuse')
+optiboot_x.c:144:3: error: field name not in record or union initializer
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |   ^
+optiboot_x.c:144:3: note: (near initialization for '__fuse')
+optiboot_x.c:144:13: error: 'FREQSEL_20MHZ_gc' undeclared here (not in a function)
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:144:13: warning: excess elements in scalar initializer
+optiboot_x.c:144:13: note: (near initialization for '__fuse')
+optiboot_x.c:149:3: error: field name not in record or union initializer
+  149 |   .SYSCFG0 =  CRCSRC_NOCRC_gc | RSTPINCFG_RST_gc, /* RESET is enabled */
+      |   ^
+optiboot_x.c:149:3: note: (near initialization for '__fuse')
+optiboot_x.c:149:15: error: 'CRCSRC_NOCRC_gc' undeclared here (not in a function)
+  149 |   .SYSCFG0 =  CRCSRC_NOCRC_gc | RSTPINCFG_RST_gc, /* RESET is enabled */
+      |               ^~~~~~~~~~~~~~~
+optiboot_x.c:149:33: error: 'RSTPINCFG_RST_gc' undeclared here (not in a function)
+  149 |   .SYSCFG0 =  CRCSRC_NOCRC_gc | RSTPINCFG_RST_gc, /* RESET is enabled */
+      |                                 ^~~~~~~~~~~~~~~~
+optiboot_x.c:149:15: warning: excess elements in scalar initializer
+  149 |   .SYSCFG0 =  CRCSRC_NOCRC_gc | RSTPINCFG_RST_gc, /* RESET is enabled */
+      |               ^~~~~~~~~~~~~~~
+optiboot_x.c:149:15: note: (near initialization for '__fuse')
+optiboot_x.c:157:3: error: field name not in record or union initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |   ^
+optiboot_x.c:157:3: note: (near initialization for '__fuse')
+optiboot_x.c:157:14: warning: excess elements in scalar initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |              ^~~~
+optiboot_x.c:157:14: note: (near initialization for '__fuse')
+optiboot_x.c:158:3: error: field name not in record or union initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |   ^
+optiboot_x.c:158:3: note: (near initialization for '__fuse')
+optiboot_x.c:158:13: warning: excess elements in scalar initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |             ^
+optiboot_x.c:158:13: note: (near initialization for '__fuse')
+optiboot_x.c:159:3: error: field name not in record or union initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |   ^
+optiboot_x.c:159:3: note: (near initialization for '__fuse')
+optiboot_x.c:159:14: warning: excess elements in scalar initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |              ^
+optiboot_x.c:159:14: note: (near initialization for '__fuse')
+In file included from optiboot_x.c:183:
+pin_defs_x.h:656:2: error: #error Unrecognized LED name. Should be like "B5"
+  656 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:658:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  658 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:659:2: error: #error Nonexistent LED PORT. Check datasheet.
+  659 | #error Nonexistent LED PORT.  Check datasheet.
+      |  ^~~~~
+pin_defs_x.h:661:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  661 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:662:2: error: #error Unrecognized LED name. Should be like "B5"
+  662 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:687:5: error: #error Pin on USART0, but no USART0 exists
+  687 | #   error Pin on USART0, but no USART0 exists
+      |     ^~~~~
+optiboot_x.c:289:2: error: #error RAMSTART not defined.
+  289 | #error RAMSTART not defined.
+      |  ^~~~~
+optiboot_x.c: In function 'main':
+optiboot_x.c:330:8: error: 'RSTCTRL' undeclared (first use in this function)
+  330 |   ch = RSTCTRL.RSTFR;   // get reset cause
+      |        ^~~~~~~
+optiboot_x.c:330:8: note: each undeclared identifier is reported only once for each function it appears in
+optiboot_x.c:352:19: error: 'RSTCTRL_WDRF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:352:48: error: 'RSTCTRL_BORF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                                                ^~~~~~~~~~~~~~~
+optiboot_x.c:361:5: error: 'GPIOR0' undeclared (first use in this function)
+  361 |     GPIOR0 = ch; // but, stash the reset cause in GPIOR0 for use by app...
+      |     ^~~~~~
+optiboot_x.c:362:20: error: 'WDT_PERIOD_OFF_gc' undeclared (first use in this function)
+  362 |     watchdogConfig(WDT_PERIOD_OFF_gc);
+      |                    ^~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:690:25: error: 'VPORTA' undeclared (first use in this function); did you mean 'PORT0'?
+  690 | #  define MYUART_TXPORT VPORTA
+      |                         ^~~~~~
+optiboot_x.c:415:3: note: in expansion of macro 'MYUART_TXPORT'
+  415 |   MYUART_TXPORT.DIR |= MYUART_TXPIN; // set TX pin to output
+      |   ^~~~~~~~~~~~~
+pin_defs_x.h:674:20: error: 'PORTMUX' undeclared (first use in this function); did you mean 'PORT0'?
+  674 | #define MYPMUX_REG PORTMUX.USARTROUTEA
+      |                    ^~~~~~~
+optiboot_x.c:418:3: note: in expansion of macro 'MYPMUX_REG'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |   ^~~~~~~~~~
+pin_defs_x.h:692:28: error: 'PORTMUX_USART0_ALT1_gc' undeclared (first use in this function)
+  692 | #  define MYUART_PMUX_VAL (PORTMUX_USART0_ALT1_gc)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:418:16: note: in expansion of macro 'MYUART_PMUX_VAL'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |                ^~~~~~~~~~~~~~~
+optiboot_x.c:420:8: error: 'FUSE_OSCCFG' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |        ^~~~~~~~~~~
+optiboot_x.c:420:22: error: 'FUSE_FREQSEL_gm' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                      ^~~~~~~~~~~~~~~
+optiboot_x.c:420:42: error: 'FREQSEL_16MHZ_gc' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                                          ^~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:689:18: error: 'USART0' undeclared (first use in this function)
+  689 | #  define MYUART USART0
+      |                  ^~~~~~
+optiboot_x.c:421:5: note: in expansion of macro 'MYUART'
+  421 |     MYUART.BAUD = BAUD_SETTING_16;
+      |     ^~~~~~
+optiboot_x.c:426:19: error: 'USART_CHSIZE_gm' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:426:37: error: 'USART_CHSIZE_8BIT_gc' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:428:18: error: 'USART_RXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                  ^~~~~~~~~~~~~
+optiboot_x.c:428:34: error: 'USART_TXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                                  ^~~~~~~~~~~~~
+optiboot_x.c:237:20: error: 'WDT_PERIOD_1KCLK_gc' undeclared (first use in this function)
+  237 | # define WDTPERIOD WDT_PERIOD_1KCLK_gc  // 1 second
+      |                    ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:436:18: note: in expansion of macro 'WDTPERIOD'
+  436 |   watchdogConfig(WDTPERIOD);
+      |                  ^~~~~~~~~
+optiboot_x.c:440:3: error: 'LED_PORT' undeclared (first use in this function)
+  440 |   LED_PORT.DIR |= LED;
+      |   ^~~~~~~~
+optiboot_x.c:517:25: error: 'MAPPED_PROGMEM_START' undeclared (first use in this function)
+  517 |         address.word += MAPPED_PROGMEM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:519:25: error: 'MAPPED_EEPROM_START' undeclared (first use in this function)
+  519 |         address.word += MAPPED_EEPROM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:7: warning: implicit declaration of function '_PROTECTED_WRITE_SPM' [-Wimplicit-function-declaration]
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |       ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:28: error: 'NVMCTRL' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                            ^~~~~~~
+optiboot_x.c:532:43: error: 'NVMCTRL_CMD_PAGEERASEWRITE_gc' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:533:32: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                ^~~~~~~~~~~~~~~~
+optiboot_x.c:533:49: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                                 ^~~~~~~~~~~~~~~~~
+optiboot_x.c:561:13: error: 'SIGROW_DEVICEID0' undeclared (first use in this function)
+  561 |       putch(SIGROW_DEVICEID0);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:562:13: error: 'SIGROW_DEVICEID1' undeclared (first use in this function)
+  562 |       putch(SIGROW_DEVICEID1);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:563:13: error: 'SIGROW_DEVICEID2' undeclared (first use in this function)
+  563 |       putch(SIGROW_DEVICEID2);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:567:22: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  567 |       watchdogConfig(WDT_PERIOD_8CLK_gc);
+      |                      ^~~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'putch':
+pin_defs_x.h:689:18: error: 'USART0' undeclared (first use in this function)
+  689 | #  define MYUART USART0
+      |                  ^~~~~~
+optiboot_x.c:604:16: note: in expansion of macro 'MYUART'
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                ^~~~~~
+optiboot_x.c:604:32: error: 'USART_DREIF_bm' undeclared (first use in this function)
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                                ^~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'getch':
+pin_defs_x.h:689:18: error: 'USART0' undeclared (first use in this function)
+  689 | #  define MYUART USART0
+      |                  ^~~~~~
+optiboot_x.c:612:12: note: in expansion of macro 'MYUART'
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |            ^~~~~~
+optiboot_x.c:612:28: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |                            ^~~~~~~~~~~~~~
+optiboot_x.c:616:16: error: 'USART_FERR_bm' undeclared (first use in this function)
+  616 |   if ((flags & USART_FERR_bm) == 0)
+      |                ^~~~~~~~~~~~~
+optiboot_x.c: In function 'verifySpace':
+optiboot_x.c:632:20: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  632 |     watchdogConfig(WDT_PERIOD_8CLK_gc);    // shorten WD timeout
+      |                    ^~~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'flash_led':
+optiboot_x.c:643:5: error: 'LED_PORT' undeclared (first use in this function)
+  643 |     LED_PORT.IN |= LED;
+      |     ^~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:689:18: error: 'USART0' undeclared (first use in this function)
+  689 | #  define MYUART USART0
+      |                  ^~~~~~
+optiboot_x.c:647:11: note: in expansion of macro 'MYUART'
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |           ^~~~~~
+optiboot_x.c:647:27: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |                           ^~~~~~~~~~~~~~
+optiboot_x.c: In function 'watchdogConfig':
+optiboot_x.c:661:9: error: 'WDT' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |         ^~~
+optiboot_x.c:661:22: error: 'WDT_SYNCBUSY_bm' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |                      ^~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:99,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:592,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP_IOREG_gc' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'do_nvmctrl':
+optiboot_x.c:688:18: error: 'NVMCTRL_CMD_gm' undeclared (first use in this function)
+  688 |   if (command <= NVMCTRL_CMD_gm) {
+      |                  ^~~~~~~~~~~~~~
+optiboot_x.c:689:26: error: 'NVMCTRL' undeclared (first use in this function)
+  689 |     _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, command);
+      |                          ^~~~~~~
+optiboot_x.c:690:30: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                              ^~~~~~~~~~~~~~~~
+optiboot_x.c:690:47: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                               ^~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'app':
+optiboot_x.c:772:8: error: 'RSTCTRL' undeclared (first use in this function)
+  772 |   ch = RSTCTRL.RSTFR;
+      |        ^~~~~~~
+optiboot_x.c:775:17: error: 'NVMCTRL_CMD_PAGEBUFCLR_gc' undeclared (first use in this function)
+  775 |   do_nvmctrl(0, NVMCTRL_CMD_PAGEBUFCLR_gc, 0); // reference this function!
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile.mega0:124: optiboot_atmega4809.elf] Fehler 1
+make: *** [Makefile.mega0:189: freeduino4809chip] Fehler 2
+In file included from optiboot_x.c:118:
+/usr/avr/include/avr/io.h:581:6: warning: #warning "device type not defined" [-Wcpp]
+  581 | #    warning "device type not defined"
+      |      ^~~~~~~
+In file included from /usr/avr/include/avr/io.h:596,
+                 from optiboot_x.c:118:
+optiboot_x.c:141:1: error: unknown type name 'NVM_FUSES_t'
+  141 | FUSES = {
+      | ^~~~~
+optiboot_x.c:142:3: error: field name not in record or union initializer
+  142 |   .WDTCFG = 0,  /* Watchdog Configuration */
+      |   ^
+optiboot_x.c:142:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:3: error: field name not in record or union initializer
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |   ^
+optiboot_x.c:143:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:13: error: 'FUSE_BODCFG_DEFAULT' undeclared here (not in a function)
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |             ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:143:13: warning: excess elements in scalar initializer
+optiboot_x.c:143:13: note: (near initialization for '__fuse')
+optiboot_x.c:144:3: error: field name not in record or union initializer
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |   ^
+optiboot_x.c:144:3: note: (near initialization for '__fuse')
+optiboot_x.c:144:13: error: 'FREQSEL_20MHZ_gc' undeclared here (not in a function)
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:144:13: warning: excess elements in scalar initializer
+optiboot_x.c:144:13: note: (near initialization for '__fuse')
+optiboot_x.c:154:3: error: field name not in record or union initializer
+  154 |   .SYSCFG0 =  CRCSRC_NOCRC_gc, /* RESET is not yet */
+      |   ^
+optiboot_x.c:154:3: note: (near initialization for '__fuse')
+optiboot_x.c:154:15: error: 'CRCSRC_NOCRC_gc' undeclared here (not in a function)
+  154 |   .SYSCFG0 =  CRCSRC_NOCRC_gc, /* RESET is not yet */
+      |               ^~~~~~~~~~~~~~~
+optiboot_x.c:154:15: warning: excess elements in scalar initializer
+optiboot_x.c:154:15: note: (near initialization for '__fuse')
+optiboot_x.c:157:3: error: field name not in record or union initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |   ^
+optiboot_x.c:157:3: note: (near initialization for '__fuse')
+optiboot_x.c:157:14: warning: excess elements in scalar initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |              ^~~~
+optiboot_x.c:157:14: note: (near initialization for '__fuse')
+optiboot_x.c:158:3: error: field name not in record or union initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |   ^
+optiboot_x.c:158:3: note: (near initialization for '__fuse')
+optiboot_x.c:158:13: warning: excess elements in scalar initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |             ^
+optiboot_x.c:158:13: note: (near initialization for '__fuse')
+optiboot_x.c:159:3: error: field name not in record or union initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |   ^
+optiboot_x.c:159:3: note: (near initialization for '__fuse')
+optiboot_x.c:159:14: warning: excess elements in scalar initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |              ^
+optiboot_x.c:159:14: note: (near initialization for '__fuse')
+In file included from optiboot_x.c:183:
+pin_defs_x.h:656:2: error: #error Unrecognized LED name. Should be like "B5"
+  656 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:658:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  658 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:659:2: error: #error Nonexistent LED PORT. Check datasheet.
+  659 | #error Nonexistent LED PORT.  Check datasheet.
+      |  ^~~~~
+pin_defs_x.h:661:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  661 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:662:2: error: #error Unrecognized LED name. Should be like "B5"
+  662 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:696:5: error: #error Pin on USART3, but no USART3 exists
+  696 | #   error Pin on USART3, but no USART3 exists
+      |     ^~~~~
+optiboot_x.c:289:2: error: #error RAMSTART not defined.
+  289 | #error RAMSTART not defined.
+      |  ^~~~~
+optiboot_x.c: In function 'main':
+optiboot_x.c:330:8: error: 'RSTCTRL' undeclared (first use in this function)
+  330 |   ch = RSTCTRL.RSTFR;   // get reset cause
+      |        ^~~~~~~
+optiboot_x.c:330:8: note: each undeclared identifier is reported only once for each function it appears in
+optiboot_x.c:352:19: error: 'RSTCTRL_WDRF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:352:48: error: 'RSTCTRL_BORF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                                                ^~~~~~~~~~~~~~~
+optiboot_x.c:361:5: error: 'GPIOR0' undeclared (first use in this function)
+  361 |     GPIOR0 = ch; // but, stash the reset cause in GPIOR0 for use by app...
+      |     ^~~~~~
+optiboot_x.c:362:20: error: 'WDT_PERIOD_OFF_gc' undeclared (first use in this function)
+  362 |     watchdogConfig(WDT_PERIOD_OFF_gc);
+      |                    ^~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:699:25: error: 'VPORTB' undeclared (first use in this function); did you mean 'PORT0'?
+  699 | #  define MYUART_TXPORT VPORTB
+      |                         ^~~~~~
+optiboot_x.c:415:3: note: in expansion of macro 'MYUART_TXPORT'
+  415 |   MYUART_TXPORT.DIR |= MYUART_TXPIN; // set TX pin to output
+      |   ^~~~~~~~~~~~~
+pin_defs_x.h:674:20: error: 'PORTMUX' undeclared (first use in this function); did you mean 'PORT0'?
+  674 | #define MYPMUX_REG PORTMUX.USARTROUTEA
+      |                    ^~~~~~~
+optiboot_x.c:418:3: note: in expansion of macro 'MYPMUX_REG'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |   ^~~~~~~~~~
+pin_defs_x.h:701:28: error: 'PORTMUX_USART3_DEFAULT_gc' undeclared (first use in this function)
+  701 | #  define MYUART_PMUX_VAL (PORTMUX_USART3_DEFAULT_gc)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:418:16: note: in expansion of macro 'MYUART_PMUX_VAL'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |                ^~~~~~~~~~~~~~~
+optiboot_x.c:420:8: error: 'FUSE_OSCCFG' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |        ^~~~~~~~~~~
+optiboot_x.c:420:22: error: 'FUSE_FREQSEL_gm' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                      ^~~~~~~~~~~~~~~
+optiboot_x.c:420:42: error: 'FREQSEL_16MHZ_gc' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                                          ^~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:698:18: error: 'USART3' undeclared (first use in this function)
+  698 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:421:5: note: in expansion of macro 'MYUART'
+  421 |     MYUART.BAUD = BAUD_SETTING_16;
+      |     ^~~~~~
+optiboot_x.c:426:19: error: 'USART_CHSIZE_gm' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:426:37: error: 'USART_CHSIZE_8BIT_gc' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:428:18: error: 'USART_RXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                  ^~~~~~~~~~~~~
+optiboot_x.c:428:34: error: 'USART_TXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                                  ^~~~~~~~~~~~~
+optiboot_x.c:243:20: error: 'WDT_PERIOD_8KCLK_gc' undeclared (first use in this function)
+  243 | # define WDTPERIOD WDT_PERIOD_8KCLK_gc  // 8 seconds
+      |                    ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:436:18: note: in expansion of macro 'WDTPERIOD'
+  436 |   watchdogConfig(WDTPERIOD);
+      |                  ^~~~~~~~~
+optiboot_x.c:440:3: error: 'LED_PORT' undeclared (first use in this function); did you mean 'LED_INVERT'?
+  440 |   LED_PORT.DIR |= LED;
+      |   ^~~~~~~~
+      |   LED_INVERT
+optiboot_x.c:517:25: error: 'MAPPED_PROGMEM_START' undeclared (first use in this function)
+  517 |         address.word += MAPPED_PROGMEM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:519:25: error: 'MAPPED_EEPROM_START' undeclared (first use in this function)
+  519 |         address.word += MAPPED_EEPROM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:7: warning: implicit declaration of function '_PROTECTED_WRITE_SPM' [-Wimplicit-function-declaration]
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |       ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:28: error: 'NVMCTRL' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                            ^~~~~~~
+optiboot_x.c:532:43: error: 'NVMCTRL_CMD_PAGEERASEWRITE_gc' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:533:32: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                ^~~~~~~~~~~~~~~~
+optiboot_x.c:533:49: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                                 ^~~~~~~~~~~~~~~~~
+optiboot_x.c:561:13: error: 'SIGROW_DEVICEID0' undeclared (first use in this function)
+  561 |       putch(SIGROW_DEVICEID0);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:562:13: error: 'SIGROW_DEVICEID1' undeclared (first use in this function)
+  562 |       putch(SIGROW_DEVICEID1);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:563:13: error: 'SIGROW_DEVICEID2' undeclared (first use in this function)
+  563 |       putch(SIGROW_DEVICEID2);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:567:22: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  567 |       watchdogConfig(WDT_PERIOD_8CLK_gc);
+      |                      ^~~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'putch':
+pin_defs_x.h:698:18: error: 'USART3' undeclared (first use in this function)
+  698 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:604:16: note: in expansion of macro 'MYUART'
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                ^~~~~~
+optiboot_x.c:604:32: error: 'USART_DREIF_bm' undeclared (first use in this function)
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                                ^~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'getch':
+pin_defs_x.h:698:18: error: 'USART3' undeclared (first use in this function)
+  698 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:612:12: note: in expansion of macro 'MYUART'
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |            ^~~~~~
+optiboot_x.c:612:28: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |                            ^~~~~~~~~~~~~~
+optiboot_x.c:616:16: error: 'USART_FERR_bm' undeclared (first use in this function)
+  616 |   if ((flags & USART_FERR_bm) == 0)
+      |                ^~~~~~~~~~~~~
+optiboot_x.c: In function 'verifySpace':
+optiboot_x.c:632:20: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  632 |     watchdogConfig(WDT_PERIOD_8CLK_gc);    // shorten WD timeout
+      |                    ^~~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'flash_led':
+optiboot_x.c:643:5: error: 'LED_PORT' undeclared (first use in this function); did you mean 'LED_INVERT'?
+  643 |     LED_PORT.IN |= LED;
+      |     ^~~~~~~~
+      |     LED_INVERT
+In file included from optiboot_x.c:183:
+pin_defs_x.h:698:18: error: 'USART3' undeclared (first use in this function)
+  698 | #  define MYUART USART3
+      |                  ^~~~~~
+optiboot_x.c:647:11: note: in expansion of macro 'MYUART'
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |           ^~~~~~
+optiboot_x.c:647:27: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |                           ^~~~~~~~~~~~~~
+optiboot_x.c: In function 'watchdogConfig':
+optiboot_x.c:661:9: error: 'WDT' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |         ^~~
+optiboot_x.c:661:22: error: 'WDT_SYNCBUSY_bm' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |                      ^~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:99,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:592,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP_IOREG_gc' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'do_nvmctrl':
+optiboot_x.c:688:18: error: 'NVMCTRL_CMD_gm' undeclared (first use in this function)
+  688 |   if (command <= NVMCTRL_CMD_gm) {
+      |                  ^~~~~~~~~~~~~~
+optiboot_x.c:689:26: error: 'NVMCTRL' undeclared (first use in this function)
+  689 |     _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, command);
+      |                          ^~~~~~~
+optiboot_x.c:690:30: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                              ^~~~~~~~~~~~~~~~
+optiboot_x.c:690:47: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                               ^~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'app':
+optiboot_x.c:772:8: error: 'RSTCTRL' undeclared (first use in this function)
+  772 |   ch = RSTCTRL.RSTFR;
+      |        ^~~~~~~
+optiboot_x.c:775:17: error: 'NVMCTRL_CMD_PAGEBUFCLR_gc' undeclared (first use in this function)
+  775 |   do_nvmctrl(0, NVMCTRL_CMD_PAGEBUFCLR_gc, 0); // reference this function!
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile.mega0:124: optiboot_atmega4809.elf] Fehler 1
+make: *** [Makefile.mega0:169: curiosity4809] Fehler 2
+In file included from optiboot_x.c:118:
+/usr/avr/include/avr/io.h:581:6: warning: #warning "device type not defined" [-Wcpp]
+  581 | #    warning "device type not defined"
+      |      ^~~~~~~
+In file included from /usr/avr/include/avr/io.h:596,
+                 from optiboot_x.c:118:
+optiboot_x.c:141:1: error: unknown type name 'NVM_FUSES_t'
+  141 | FUSES = {
+      | ^~~~~
+optiboot_x.c:142:3: error: field name not in record or union initializer
+  142 |   .WDTCFG = 0,  /* Watchdog Configuration */
+      |   ^
+optiboot_x.c:142:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:3: error: field name not in record or union initializer
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |   ^
+optiboot_x.c:143:3: note: (near initialization for '__fuse')
+optiboot_x.c:143:13: error: 'FUSE_BODCFG_DEFAULT' undeclared here (not in a function)
+  143 |   .BODCFG = FUSE_BODCFG_DEFAULT,  /* BOD Configuration */
+      |             ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:143:13: warning: excess elements in scalar initializer
+optiboot_x.c:143:13: note: (near initialization for '__fuse')
+optiboot_x.c:144:3: error: field name not in record or union initializer
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |   ^
+optiboot_x.c:144:3: note: (near initialization for '__fuse')
+optiboot_x.c:144:13: error: 'FREQSEL_20MHZ_gc' undeclared here (not in a function)
+  144 |   .OSCCFG = FREQSEL_20MHZ_gc, /* 20MHz */
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:144:13: warning: excess elements in scalar initializer
+optiboot_x.c:144:13: note: (near initialization for '__fuse')
+optiboot_x.c:154:3: error: field name not in record or union initializer
+  154 |   .SYSCFG0 =  CRCSRC_NOCRC_gc, /* RESET is not yet */
+      |   ^
+optiboot_x.c:154:3: note: (near initialization for '__fuse')
+optiboot_x.c:154:15: error: 'CRCSRC_NOCRC_gc' undeclared here (not in a function)
+  154 |   .SYSCFG0 =  CRCSRC_NOCRC_gc, /* RESET is not yet */
+      |               ^~~~~~~~~~~~~~~
+optiboot_x.c:154:15: warning: excess elements in scalar initializer
+optiboot_x.c:154:15: note: (near initialization for '__fuse')
+optiboot_x.c:157:3: error: field name not in record or union initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |   ^
+optiboot_x.c:157:3: note: (near initialization for '__fuse')
+optiboot_x.c:157:14: warning: excess elements in scalar initializer
+  157 |   .SYSCFG1 = 0x06,  /* startup 32ms */
+      |              ^~~~
+optiboot_x.c:157:14: note: (near initialization for '__fuse')
+optiboot_x.c:158:3: error: field name not in record or union initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |   ^
+optiboot_x.c:158:3: note: (near initialization for '__fuse')
+optiboot_x.c:158:13: warning: excess elements in scalar initializer
+  158 |   .APPEND = 0,  /* Application Code Section End */
+      |             ^
+optiboot_x.c:158:13: note: (near initialization for '__fuse')
+optiboot_x.c:159:3: error: field name not in record or union initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |   ^
+optiboot_x.c:159:3: note: (near initialization for '__fuse')
+optiboot_x.c:159:14: warning: excess elements in scalar initializer
+  159 |   .BOOTEND = 2 /* Boot Section End */
+      |              ^
+optiboot_x.c:159:14: note: (near initialization for '__fuse')
+In file included from optiboot_x.c:183:
+pin_defs_x.h:656:2: error: #error Unrecognized LED name. Should be like "B5"
+  656 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:658:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  658 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:659:2: error: #error Nonexistent LED PORT. Check datasheet.
+  659 | #error Nonexistent LED PORT.  Check datasheet.
+      |  ^~~~~
+pin_defs_x.h:661:32: warning: '-Wfatal-errors' is not an option that controls warnings [-Wpragmas]
+  661 | #pragma GCC diagnostic warning "-Wfatal-errors"
+      |                                ^~~~~~~~~~~~~~~~
+pin_defs_x.h:662:2: error: #error Unrecognized LED name. Should be like "B5"
+  662 | #error Unrecognized LED name.  Should be like "B5"
+      |  ^~~~~
+pin_defs_x.h:714:5: error: #error Pin on USART1, but no USART1 exists
+  714 | #   error Pin on USART1, but no USART1 exists
+      |     ^~~~~
+optiboot_x.c:289:2: error: #error RAMSTART not defined.
+  289 | #error RAMSTART not defined.
+      |  ^~~~~
+optiboot_x.c: In function 'main':
+optiboot_x.c:330:8: error: 'RSTCTRL' undeclared (first use in this function)
+  330 |   ch = RSTCTRL.RSTFR;   // get reset cause
+      |        ^~~~~~~
+optiboot_x.c:330:8: note: each undeclared identifier is reported only once for each function it appears in
+optiboot_x.c:352:19: error: 'RSTCTRL_WDRF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:352:48: error: 'RSTCTRL_BORF_bm' undeclared (first use in this function)
+  352 |   if (ch && (ch & RSTCTRL_WDRF_bm || (!(ch & (~RSTCTRL_BORF_bm))))) {
+      |                                                ^~~~~~~~~~~~~~~
+optiboot_x.c:361:5: error: 'GPIOR0' undeclared (first use in this function)
+  361 |     GPIOR0 = ch; // but, stash the reset cause in GPIOR0 for use by app...
+      |     ^~~~~~
+optiboot_x.c:362:20: error: 'WDT_PERIOD_OFF_gc' undeclared (first use in this function)
+  362 |     watchdogConfig(WDT_PERIOD_OFF_gc);
+      |                    ^~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:717:25: error: 'VPORTC' undeclared (first use in this function); did you mean 'PORT0'?
+  717 | #  define MYUART_TXPORT VPORTC
+      |                         ^~~~~~
+optiboot_x.c:415:3: note: in expansion of macro 'MYUART_TXPORT'
+  415 |   MYUART_TXPORT.DIR |= MYUART_TXPIN; // set TX pin to output
+      |   ^~~~~~~~~~~~~
+pin_defs_x.h:674:20: error: 'PORTMUX' undeclared (first use in this function); did you mean 'PORT0'?
+  674 | #define MYPMUX_REG PORTMUX.USARTROUTEA
+      |                    ^~~~~~~
+optiboot_x.c:418:3: note: in expansion of macro 'MYPMUX_REG'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |   ^~~~~~~~~~
+pin_defs_x.h:719:28: error: 'PORTMUX_USART1_DEFAULT_gc' undeclared (first use in this function)
+  719 | #  define MYUART_PMUX_VAL (PORTMUX_USART1_DEFAULT_gc)
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:418:16: note: in expansion of macro 'MYUART_PMUX_VAL'
+  418 |   MYPMUX_REG = MYUART_PMUX_VAL;  // alternate pinout to use
+      |                ^~~~~~~~~~~~~~~
+optiboot_x.c:420:8: error: 'FUSE_OSCCFG' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |        ^~~~~~~~~~~
+optiboot_x.c:420:22: error: 'FUSE_FREQSEL_gm' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                      ^~~~~~~~~~~~~~~
+optiboot_x.c:420:42: error: 'FREQSEL_16MHZ_gc' undeclared (first use in this function)
+  420 |   if ((FUSE_OSCCFG & FUSE_FREQSEL_gm) == FREQSEL_16MHZ_gc) {
+      |                                          ^~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+pin_defs_x.h:716:18: error: 'USART1' undeclared (first use in this function)
+  716 | #  define MYUART USART1
+      |                  ^~~~~~
+optiboot_x.c:421:5: note: in expansion of macro 'MYUART'
+  421 |     MYUART.BAUD = BAUD_SETTING_16;
+      |     ^~~~~~
+optiboot_x.c:426:19: error: 'USART_CHSIZE_gm' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                   ^~~~~~~~~~~~~~~
+optiboot_x.c:426:37: error: 'USART_CHSIZE_8BIT_gc' undeclared (first use in this function)
+  426 |   MYUART.CTRLC = (USART_CHSIZE_gm & USART_CHSIZE_8BIT_gc);  // Async, Parity Disabled, 1 StopBit
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:428:18: error: 'USART_RXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                  ^~~~~~~~~~~~~
+optiboot_x.c:428:34: error: 'USART_TXEN_bm' undeclared (first use in this function)
+  428 |   MYUART.CTRLB = USART_RXEN_bm | USART_TXEN_bm;
+      |                                  ^~~~~~~~~~~~~
+optiboot_x.c:243:20: error: 'WDT_PERIOD_8KCLK_gc' undeclared (first use in this function)
+  243 | # define WDTPERIOD WDT_PERIOD_8KCLK_gc  // 8 seconds
+      |                    ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:436:18: note: in expansion of macro 'WDTPERIOD'
+  436 |   watchdogConfig(WDTPERIOD);
+      |                  ^~~~~~~~~
+optiboot_x.c:440:3: error: 'LED_PORT' undeclared (first use in this function); did you mean 'LED_INVERT'?
+  440 |   LED_PORT.DIR |= LED;
+      |   ^~~~~~~~
+      |   LED_INVERT
+optiboot_x.c:517:25: error: 'MAPPED_PROGMEM_START' undeclared (first use in this function)
+  517 |         address.word += MAPPED_PROGMEM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:519:25: error: 'MAPPED_EEPROM_START' undeclared (first use in this function)
+  519 |         address.word += MAPPED_EEPROM_START;
+      |                         ^~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:7: warning: implicit declaration of function '_PROTECTED_WRITE_SPM' [-Wimplicit-function-declaration]
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |       ^~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:532:28: error: 'NVMCTRL' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                            ^~~~~~~
+optiboot_x.c:532:43: error: 'NVMCTRL_CMD_PAGEERASEWRITE_gc' undeclared (first use in this function)
+  532 |       _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, NVMCTRL_CMD_PAGEERASEWRITE_gc);
+      |                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+optiboot_x.c:533:32: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                ^~~~~~~~~~~~~~~~
+optiboot_x.c:533:49: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  533 |       while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                                 ^~~~~~~~~~~~~~~~~
+optiboot_x.c:561:13: error: 'SIGROW_DEVICEID0' undeclared (first use in this function)
+  561 |       putch(SIGROW_DEVICEID0);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:562:13: error: 'SIGROW_DEVICEID1' undeclared (first use in this function)
+  562 |       putch(SIGROW_DEVICEID1);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:563:13: error: 'SIGROW_DEVICEID2' undeclared (first use in this function)
+  563 |       putch(SIGROW_DEVICEID2);
+      |             ^~~~~~~~~~~~~~~~
+optiboot_x.c:567:22: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  567 |       watchdogConfig(WDT_PERIOD_8CLK_gc);
+      |                      ^~~~~~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'putch':
+pin_defs_x.h:716:18: error: 'USART1' undeclared (first use in this function)
+  716 | #  define MYUART USART1
+      |                  ^~~~~~
+optiboot_x.c:604:16: note: in expansion of macro 'MYUART'
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                ^~~~~~
+optiboot_x.c:604:32: error: 'USART_DREIF_bm' undeclared (first use in this function)
+  604 |   while (0 == (MYUART.STATUS & USART_DREIF_bm))
+      |                                ^~~~~~~~~~~~~~
+In file included from optiboot_x.c:183:
+optiboot_x.c: In function 'getch':
+pin_defs_x.h:716:18: error: 'USART1' undeclared (first use in this function)
+  716 | #  define MYUART USART1
+      |                  ^~~~~~
+optiboot_x.c:612:12: note: in expansion of macro 'MYUART'
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |            ^~~~~~
+optiboot_x.c:612:28: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  612 |   while (!(MYUART.STATUS & USART_RXCIF_bm))
+      |                            ^~~~~~~~~~~~~~
+optiboot_x.c:616:16: error: 'USART_FERR_bm' undeclared (first use in this function)
+  616 |   if ((flags & USART_FERR_bm) == 0)
+      |                ^~~~~~~~~~~~~
+optiboot_x.c: In function 'verifySpace':
+optiboot_x.c:632:20: error: 'WDT_PERIOD_8CLK_gc' undeclared (first use in this function)
+  632 |     watchdogConfig(WDT_PERIOD_8CLK_gc);    // shorten WD timeout
+      |                    ^~~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'flash_led':
+optiboot_x.c:643:5: error: 'LED_PORT' undeclared (first use in this function); did you mean 'LED_INVERT'?
+  643 |     LED_PORT.IN |= LED;
+      |     ^~~~~~~~
+      |     LED_INVERT
+In file included from optiboot_x.c:183:
+pin_defs_x.h:716:18: error: 'USART1' undeclared (first use in this function)
+  716 | #  define MYUART USART1
+      |                  ^~~~~~
+optiboot_x.c:647:11: note: in expansion of macro 'MYUART'
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |           ^~~~~~
+optiboot_x.c:647:27: error: 'USART_RXCIF_bm' undeclared (first use in this function)
+  647 |       if (MYUART.STATUS & USART_RXCIF_bm)
+      |                           ^~~~~~~~~~~~~~
+optiboot_x.c: In function 'watchdogConfig':
+optiboot_x.c:661:9: error: 'WDT' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |         ^~~
+optiboot_x.c:661:22: error: 'WDT_SYNCBUSY_bm' undeclared (first use in this function)
+  661 |   while(WDT.STATUS & WDT_SYNCBUSY_bm)
+      |                      ^~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:99,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+In file included from /usr/avr/include/avr/io.h:592,
+                 from optiboot_x.c:118:
+optiboot_x.c:663:3: error: 'CCP_IOREG_gc' undeclared (first use in this function)
+  663 |   _PROTECTED_WRITE(WDT.CTRLA, x);
+      |   ^~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'do_nvmctrl':
+optiboot_x.c:688:18: error: 'NVMCTRL_CMD_gm' undeclared (first use in this function)
+  688 |   if (command <= NVMCTRL_CMD_gm) {
+      |                  ^~~~~~~~~~~~~~
+optiboot_x.c:689:26: error: 'NVMCTRL' undeclared (first use in this function)
+  689 |     _PROTECTED_WRITE_SPM(NVMCTRL.CTRLA, command);
+      |                          ^~~~~~~
+optiboot_x.c:690:30: error: 'NVMCTRL_FBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                              ^~~~~~~~~~~~~~~~
+optiboot_x.c:690:47: error: 'NVMCTRL_EEBUSY_bm' undeclared (first use in this function)
+  690 |     while (NVMCTRL.STATUS & (NVMCTRL_FBUSY_bm|NVMCTRL_EEBUSY_bm))
+      |                                               ^~~~~~~~~~~~~~~~~
+optiboot_x.c: In function 'app':
+optiboot_x.c:772:8: error: 'RSTCTRL' undeclared (first use in this function)
+  772 |   ch = RSTCTRL.RSTFR;
+      |        ^~~~~~~
+optiboot_x.c:775:17: error: 'NVMCTRL_CMD_PAGEBUFCLR_gc' undeclared (first use in this function)
+  775 |   do_nvmctrl(0, NVMCTRL_CMD_PAGEBUFCLR_gc, 0); // reference this function!
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile.mega0:124: optiboot_atmega4809.elf] Fehler 1
+make: *** [Makefile.mega0:181: xplained4809] Fehler 2
+
+
+ERRORS ===> CRASH, compilation process aborted, no output files created!!!

@@ -1,0 +1,366 @@
+rm -rf *.o *.elf *.lst *.map *.sym *.lss *.eep *.srec *.bin *.hex *.tmp.sh
+"make" atmega168 AVR_FREQ=8000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 111111, UBRRL = 8, Difference=-3.5%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_lilypad.hex
+mv optiboot_atmega168.lst optiboot_lilypad.lst
+"make" atmega168 AVR_FREQ=8000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 111111, UBRRL = 8, Difference=-3.5%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_pro_8MHz.hex
+mv optiboot_atmega168.lst optiboot_pro_8MHz.lst
+"make" atmega168 AVR_FREQ=16000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_pro_16MHz.hex
+mv optiboot_atmega168.lst optiboot_pro_16MHz.lst
+"make" atmega168 AVR_FREQ=20000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_pro_20mhz.hex
+mv optiboot_atmega168.lst optiboot_pro_20mhz.lst
+"make" atmega328 AVR_FREQ=8000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 111111, UBRRL = 8, Difference=-3.5%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=8000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega328.hex optiboot_atmega328_pro_8MHz.hex
+mv optiboot_atmega328.lst optiboot_atmega328_pro_8MHz.lst
+"make" atmega644p AVR_FREQ=16000000L LED=B0
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega644p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3    -DLED=B0           -DBIGBOOT    -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega644p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3    -DLED=B0           -DBIGBOOT  -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega644p.elf optiboot.o 
+avr-size optiboot_atmega644p.elf
+   text	   data	    bss	    dec	    hex	filename
+    744	      0	      0	    744	    2e8	optiboot_atmega644p.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega644p.elf optiboot_atmega644p.hex
+avr-objdump -h -S optiboot_atmega644p.elf > optiboot_atmega644p.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega644p.hex optiboot_sanguino.hex
+mv optiboot_atmega644p.lst optiboot_sanguino.lst
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1280 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBIGBOOT    -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1280 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBIGBOOT  -Wl,--section-start=.text=0x1fc00  -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega1280.elf optiboot.o 
+avr-size optiboot_atmega1280.elf
+   text	   data	    bss	    dec	    hex	filename
+    782	      0	      0	    782	    30e	optiboot_atmega1280.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega1280.elf optiboot_atmega1280.hex
+avr-objdump -h -S optiboot_atmega1280.elf > optiboot_atmega1280.lst
+rm optiboot.o
+"make" attiny84 AVR_FREQ=1000000L LED_START_FLASHES=0 BAUD_RATE=9600
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 9600, Real: 9615, UBRRL = 12, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=attiny84 -DF_CPU=1000000L  -DBAUD_RATE=9600 -DLED_START_FLASHES=0               '-DVIRTUAL_BOOT_PARTITION' '-DSOFT_UART'   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=attiny84 -DF_CPU=1000000L  -DBAUD_RATE=9600 -DLED_START_FLASHES=0               '-DVIRTUAL_BOOT_PARTITION' '-DSOFT_UART' -Wl,--section-start=.text=0x1D80 -Wl,--section-start=.version=0x1ffe -Wl,--relax -nostartfiles -o optiboot_attiny84.elf optiboot.o 
+avr-size optiboot_attiny84.elf
+   text	   data	    bss	    dec	    hex	filename
+    574	      0	      0	    574	    23e	optiboot_attiny84.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_attiny84.elf optiboot_attiny84.hex
+avr-objdump -h -S optiboot_attiny84.elf > optiboot_attiny84.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_attiny84.hex optiboot_luminet.hex
+mv optiboot_attiny84.lst optiboot_luminet.lst
+"make" atmega168 AVR_FREQ=16000000L LED_START_FLASHES=3
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_diecimila.hex
+mv optiboot_atmega168.lst optiboot_diecimila.lst
+"make" atmega1284p AVR_FREQ=16000000L LED=B7
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3    -DLED=B7           -DBIGBOOT    -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3    -DLED=B7           -DBIGBOOT  -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega1284p.elf optiboot.o 
+avr-size optiboot_atmega1284p.elf
+   text	   data	    bss	    dec	    hex	filename
+    784	      0	      0	    784	    310	optiboot_atmega1284p.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega1284p.elf optiboot_atmega1284p.hex
+avr-objdump -h -S optiboot_atmega1284p.elf > optiboot_atmega1284p.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega1284p.hex optiboot_bobuino.hex
+mv optiboot_atmega1284p.lst optiboot_bobuino.lst
+"make" atmega1284p AVR_FREQ=16000000L LED=B7 BAUD_RATE=1000000
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 1000000, Real: 1000000, UBRRL = 1, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=1000000 -DLED_START_FLASHES=3    -DLED=B7           -DBIGBOOT    -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=1000000 -DLED_START_FLASHES=3    -DLED=B7           -DBIGBOOT  -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega1284p.elf optiboot.o 
+avr-size optiboot_atmega1284p.elf
+   text	   data	    bss	    dec	    hex	filename
+    786	      0	      0	    786	    312	optiboot_atmega1284p.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega1284p.elf optiboot_atmega1284p.hex
+avr-objdump -h -S optiboot_atmega1284p.elf > optiboot_atmega1284p.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega1284p.hex optiboot_wildfirev2.hex
+mv optiboot_atmega1284p.lst optiboot_wildfirev2.lst
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBIGBOOT    -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega1284p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBIGBOOT  -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega1284p.elf optiboot.o 
+avr-size optiboot_atmega1284p.elf
+   text	   data	    bss	    dec	    hex	filename
+    784	      0	      0	    784	    310	optiboot_atmega1284p.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega1284p.elf optiboot_atmega1284p.hex
+avr-objdump -h -S optiboot_atmega1284p.elf > optiboot_atmega1284p.lst
+rm optiboot.o
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 115200, UBRRL = 11, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=11059200L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=11059200L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega32.elf optiboot.o 
+avr-size optiboot_atmega32.elf
+   text	   data	    bss	    dec	    hex	filename
+    484	      0	      0	    484	    1e4	optiboot_atmega32.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega32.elf optiboot_atmega32.hex
+avr-objdump -h -S optiboot_atmega32.elf > optiboot_atmega32.lst
+rm optiboot.o
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88.elf optiboot.o 
+avr-size optiboot_atmega88.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega88.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88.elf optiboot_atmega88.hex
+avr-objdump -h -S optiboot_atmega88.elf > optiboot_atmega88.lst
+rm optiboot.o
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBAUD_RATE=115200 -DLED_START_FLASHES=3                  -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBAUD_RATE=115200 -DLED_START_FLASHES=3                -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_16MHz.elf optiboot.o 
+avr-size optiboot_atmega168p_16MHz.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168p_16MHz.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_16MHz.elf optiboot_atmega168p_16MHz.hex
+avr-objdump -h -S optiboot_atmega168p_16MHz.elf > optiboot_atmega168p_16MHz.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -DBAUD_RATE=115200 -DLED_START_FLASHES=3                -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_UART__.elf optiboot.o 
+avr-size optiboot_atmega168p_UART__.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168p_UART__.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_UART__.elf optiboot_atmega168p_UART__.hex
+avr-objdump -h -S optiboot_atmega168p_UART__.elf > optiboot_atmega168p_UART__.lst
+rm optiboot.o
+"make" atmega168 AVR_FREQ=16000000L BAUD_RATE=57600
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57142, UBRRL = 34, Difference=0.7%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega168.hex optiboot_xplained168pb.hex
+mv optiboot_atmega168.lst optiboot_xplained168pb.lst
+"make" atmega328 AVR_FREQ=16000000L BAUD_RATE=57600
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57142, UBRRL = 34, Difference=0.7%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega328.hex optiboot_xplained328p.hex
+mv optiboot_atmega328.lst optiboot_xplained328p.lst
+"make" atmega328 AVR_FREQ=16000000L BAUD_RATE=57600
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57142, UBRRL = 34, Difference=0.7%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+make[1]: Verzeichnis „/home/jonathan/Workspaces/Arduino/Programmer_Debugger_Bootloader/other_Bootloaders/Optiboot_test_hexfiles/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+mv optiboot_atmega328.hex optiboot_xplained328pb.hex
+mv optiboot_atmega328.lst optiboot_xplained328pb.lst
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=16000000L   -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega8.elf optiboot.o 
+avr-size optiboot_atmega8.elf
+   text	   data	    bss	    dec	    hex	filename
+    484	      0	      0	    484	    1e4	optiboot_atmega8.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega8.elf optiboot_atmega8.hex
+avr-objdump -h -S optiboot_atmega8.elf > optiboot_atmega8.lst
+rm optiboot.o
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+avr-gcc (GCC) 11.1.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    494	      0	      0	    494	    1ee	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
