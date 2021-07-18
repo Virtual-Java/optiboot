@@ -1,0 +1,236 @@
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc --version | head -1
+avr-gcc (GCC) 5.4.0
+#define OPTIBOOT_MAJVER 9
+#define OPTIBOOT_MINVER 2
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny402.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny402 -mmcu=attiny402 -o optiboot_attiny402.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny412.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A6 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny412 -mmcu=attiny412 -o optiboot_attiny412.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny804.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny804 -mmcu=attiny804 -o optiboot_attiny804.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny814.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny814 -mmcu=attiny814 -o optiboot_attiny814.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny406.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny406 -mmcu=attiny406 -o optiboot_attiny406.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny816.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny816 -mmcu=attiny816 -o optiboot_attiny816.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny1617.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1617 -mmcu=attiny1617 -o optiboot_attiny1617.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny3217.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A3   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny3217 -mmcu=attiny3217 -o optiboot_attiny3217.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny402.hex UARTTX=A1 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=A1 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny402 -mmcu=attiny402 -o optiboot_attiny402.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny814.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny814 -mmcu=attiny814 -o optiboot_attiny814.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny3216.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny3216 -mmcu=attiny3216 -o optiboot_attiny3216.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny1607.hex UARTTX=B2 TIMEOUT=8 LED=A7
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1607 -mmcu=attiny1607 -o optiboot_attiny1607.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny1607.hex UARTTX=B2 TIMEOUT=8 LED=B7 LED_INVERT=1
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B7  -DLED_INVERT=1 -DUARTTX=B2 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny1607 -mmcu=attiny1607 -o optiboot_attiny1607.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+make -f  Makefile.mega0 optiboot_attiny416.hex UARTTX=A1 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=57600
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATtiny_DFP.1.3.229
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=A1 -DBAUD_RATE=57600        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATtiny_DFP.1.3.229/include/ -B /Downloads/Atmel.ATtiny_DFP.1.3.229/gcc/dev/attiny416 -mmcu=attiny416 -o optiboot_attiny416.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc --version | head -1
+avr-gcc (GCC) 5.4.0
+#define OPTIBOOT_MAJVER 9
+#define OPTIBOOT_MINVER 2
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=A4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega809 -mmcu=atmega809 -o optiboot_atmega809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega1609.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega1609 -mmcu=atmega1609 -o optiboot_atmega1609.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega3209.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=C4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega3209 -mmcu=atmega3209 -o optiboot_atmega3209.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4808.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=F0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4808 -mmcu=atmega4808 -o optiboot_atmega4808.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=F4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex UARTTX=C0 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=115200
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex UARTTX=B4 TIMEOUT=1 LED=D6 RESETPIN=1
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -DRSTPIN=1 -DWDTTIME=1  -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=B4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex UARTTX=A4 TIMEOUT=1 LED=A7 RESETPIN=1
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -DRSTPIN=1 -DWDTTIME=1  -DLED_START_FLASHES=3  -DLED=A7   -DUARTTX=A4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex UARTTX=B0 TIMEOUT=8 LED=F5 LED_INVERT=1
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=F5  -DLED_INVERT=1 -DUARTTX=B0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+make -f  Makefile.mega0 optiboot_atmega4809.hex UARTTX=C0 TIMEOUT=8 LED=B5 LED_INVERT=1 BAUD_RATE=115200
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at /Downloads/Atmel.ATmega_DFP.1.3.300
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax  -DWDTTIME=8  -DLED_START_FLASHES=3  -DLED=B5  -DLED_INVERT=1 -DUARTTX=C0 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I /Downloads/Atmel.ATmega_DFP.1.3.300/include/ -B /Downloads/Atmel.ATmega_DFP.1.3.300/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen

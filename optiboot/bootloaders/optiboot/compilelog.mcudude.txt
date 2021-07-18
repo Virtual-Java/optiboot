@@ -1,0 +1,2009 @@
+[7m
+
+Deleting all previous generated files [0m
+rm -rf *.o *.elf *.lst *.map *.sym *.lss *.eep *.srec *.bin *.hex *.tmp.sh
+[7m
+
+1 of 260
+ atmega8 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega8.elf optiboot.o 
+avr-size optiboot_atmega8.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega8.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega8.elf optiboot_atmega8.hex
+avr-objdump -h -S optiboot_atmega8.elf > optiboot_atmega8.lst
+rm optiboot.o
+[7m
+
+2 of 260
+ atmega8 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega8.elf optiboot.o 
+avr-size optiboot_atmega8.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega8.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega8.elf optiboot_atmega8.hex
+avr-objdump -h -S optiboot_atmega8.elf > optiboot_atmega8.lst
+rm optiboot.o
+[7m
+
+3 of 260
+ atmega8 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega8.elf optiboot.o 
+avr-size optiboot_atmega8.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega8.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega8.elf optiboot_atmega8.hex
+avr-objdump -h -S optiboot_atmega8.elf > optiboot_atmega8.lst
+rm optiboot.o
+[7m
+
+4 of 260
+ atmega8 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega8 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega8.elf optiboot.o 
+avr-size optiboot_atmega8.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega8.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega8.elf optiboot_atmega8.hex
+avr-objdump -h -S optiboot_atmega8.elf > optiboot_atmega8.lst
+rm optiboot.o
+[7m
+
+5 of 260
+ atmega16 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16.elf optiboot.o 
+avr-size optiboot_atmega16.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16.elf optiboot_atmega16.hex
+avr-objdump -h -S optiboot_atmega16.elf > optiboot_atmega16.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega16_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16_UART0_115200_20000000L.elf optiboot_atmega16_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega16_UART0_115200_20000000L.elf > optiboot_atmega16_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+6 of 260
+ atmega16 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16.elf optiboot.o 
+avr-size optiboot_atmega16.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16.elf optiboot_atmega16.hex
+avr-objdump -h -S optiboot_atmega16.elf > optiboot_atmega16.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega16_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16_UART0_115200_16000000L.elf optiboot_atmega16_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega16_UART0_115200_16000000L.elf > optiboot_atmega16_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+7 of 260
+ atmega16 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16.elf optiboot.o 
+avr-size optiboot_atmega16.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16.elf optiboot_atmega16.hex
+avr-objdump -h -S optiboot_atmega16.elf > optiboot_atmega16.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega16_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16_UART0_57600_12000000L.elf optiboot_atmega16_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega16_UART0_57600_12000000L.elf > optiboot_atmega16_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+8 of 260
+ atmega16 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16.elf optiboot.o 
+avr-size optiboot_atmega16.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16.elf optiboot_atmega16.hex
+avr-objdump -h -S optiboot_atmega16.elf > optiboot_atmega16.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega16 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega16_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega16_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    466	      0	      0	    466	    1d2	optiboot_atmega16_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega16_UART0_57600_8000000L.elf optiboot_atmega16_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega16_UART0_57600_8000000L.elf > optiboot_atmega16_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+9 of 260
+ atmega32 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega32.elf optiboot.o 
+avr-size optiboot_atmega32.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	optiboot_atmega32.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega32.elf optiboot_atmega32.hex
+avr-objdump -h -S optiboot_atmega32.elf > optiboot_atmega32.lst
+rm optiboot.o
+[7m
+
+10 of 260
+ atmega32 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega32.elf optiboot.o 
+avr-size optiboot_atmega32.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	optiboot_atmega32.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega32.elf optiboot_atmega32.hex
+avr-objdump -h -S optiboot_atmega32.elf > optiboot_atmega32.lst
+rm optiboot.o
+[7m
+
+11 of 260
+ atmega32 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega32.elf optiboot.o 
+avr-size optiboot_atmega32.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	optiboot_atmega32.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega32.elf optiboot_atmega32.hex
+avr-objdump -h -S optiboot_atmega32.elf > optiboot_atmega32.lst
+rm optiboot.o
+[7m
+
+12 of 260
+ atmega32 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega32 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega32.elf optiboot.o 
+avr-size optiboot_atmega32.elf
+   text	   data	    bss	    dec	    hex	filename
+    464	      0	      0	    464	    1d0	optiboot_atmega32.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega32.elf optiboot_atmega32.hex
+avr-objdump -h -S optiboot_atmega32.elf > optiboot_atmega32.lst
+rm optiboot.o
+[7m
+
+13 of 260
+ atmega64 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    747	      0	      0	    747	    2eb	optiboot_atmega64_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART0_115200_20000000L.elf optiboot_atmega64_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART0_115200_20000000L.elf > optiboot_atmega64_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+14 of 260
+ atmega64 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    747	      0	      0	    747	    2eb	optiboot_atmega64_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART0_115200_16000000L.elf optiboot_atmega64_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART0_115200_16000000L.elf > optiboot_atmega64_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+15 of 260
+ atmega64 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    746	      0	      0	    746	    2ea	optiboot_atmega64_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART0_57600_12000000L.elf optiboot_atmega64_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART0_57600_12000000L.elf > optiboot_atmega64_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+16 of 260
+ atmega64 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    745	      0	      0	    745	    2e9	optiboot_atmega64_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART0_57600_8000000L.elf optiboot_atmega64_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART0_57600_8000000L.elf > optiboot_atmega64_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+17 of 260
+ atmega64 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    773	      0	      0	    773	    305	optiboot_atmega64_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART1_115200_20000000L.elf optiboot_atmega64_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART1_115200_20000000L.elf > optiboot_atmega64_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+18 of 260
+ atmega64 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    773	      0	      0	    773	    305	optiboot_atmega64_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART1_115200_16000000L.elf optiboot_atmega64_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART1_115200_16000000L.elf > optiboot_atmega64_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+19 of 260
+ atmega64 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    772	      0	      0	    772	    304	optiboot_atmega64_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART1_57600_12000000L.elf optiboot_atmega64_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART1_57600_12000000L.elf > optiboot_atmega64_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+20 of 260
+ atmega64 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega64 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0xfc00 -Wl,--section-start=.version=0xfffe -Wl,--relax -nostartfiles -o optiboot_atmega64_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega64_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    771	      0	      0	    771	    303	optiboot_atmega64_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega64_UART1_57600_8000000L.elf optiboot_atmega64_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega64_UART1_57600_8000000L.elf > optiboot_atmega64_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+21 of 260
+ atmega88 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88.elf optiboot.o 
+avr-size optiboot_atmega88.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88.elf optiboot_atmega88.hex
+avr-objdump -h -S optiboot_atmega88.elf > optiboot_atmega88.lst
+rm optiboot.o
+[7m
+
+22 of 260
+ atmega88 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88.elf optiboot.o 
+avr-size optiboot_atmega88.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88.elf optiboot_atmega88.hex
+avr-objdump -h -S optiboot_atmega88.elf > optiboot_atmega88.lst
+rm optiboot.o
+[7m
+
+23 of 260
+ atmega88 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88.elf optiboot.o 
+avr-size optiboot_atmega88.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88.elf optiboot_atmega88.hex
+avr-objdump -h -S optiboot_atmega88.elf > optiboot_atmega88.lst
+rm optiboot.o
+[7m
+
+24 of 260
+ atmega88 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88.elf optiboot.o 
+avr-size optiboot_atmega88.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88.elf optiboot_atmega88.hex
+avr-objdump -h -S optiboot_atmega88.elf > optiboot_atmega88.lst
+rm optiboot.o
+[7m
+
+25 of 260
+ atmega88p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88p_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega88p_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88p_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88p_UART0_115200_20000000L.elf optiboot_atmega88p_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega88p_UART0_115200_20000000L.elf > optiboot_atmega88p_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+26 of 260
+ atmega88p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88p_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega88p_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88p_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88p_UART0_115200_16000000L.elf optiboot_atmega88p_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega88p_UART0_115200_16000000L.elf > optiboot_atmega88p_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+27 of 260
+ atmega88p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88p_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega88p_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88p_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88p_UART0_57600_12000000L.elf optiboot_atmega88p_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega88p_UART0_57600_12000000L.elf > optiboot_atmega88p_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+28 of 260
+ atmega88p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88p_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega88p_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88p_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88p_UART0_57600_8000000L.elf optiboot_atmega88p_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega88p_UART0_57600_8000000L.elf > optiboot_atmega88p_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+29 of 260
+ atmega88pb AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88pb_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega88pb_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88pb_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88pb_UART0_115200_20000000L.elf optiboot_atmega88pb_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega88pb_UART0_115200_20000000L.elf > optiboot_atmega88pb_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+30 of 260
+ atmega88pb AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88pb_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega88pb_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88pb_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88pb_UART0_115200_16000000L.elf optiboot_atmega88pb_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega88pb_UART0_115200_16000000L.elf > optiboot_atmega88pb_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+31 of 260
+ atmega88pb AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88pb_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega88pb_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88pb_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88pb_UART0_57600_12000000L.elf optiboot_atmega88pb_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega88pb_UART0_57600_12000000L.elf > optiboot_atmega88pb_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+32 of 260
+ atmega88pb AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega88pb -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe -Wl,--gc-sections -Wl,--undefined=optiboot_version -Wl,--relax -nostartfiles -o optiboot_atmega88pb_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega88pb_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega88pb_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega88pb_UART0_57600_8000000L.elf optiboot_atmega88pb_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega88pb_UART0_57600_8000000L.elf > optiboot_atmega88pb_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+33 of 260
+ atmega128 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    790	      0	      0	    790	    316	optiboot_atmega128_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART0_115200_20000000L.elf optiboot_atmega128_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART0_115200_20000000L.elf > optiboot_atmega128_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+34 of 260
+ atmega128 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    790	      0	      0	    790	    316	optiboot_atmega128_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART0_115200_16000000L.elf optiboot_atmega128_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART0_115200_16000000L.elf > optiboot_atmega128_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+35 of 260
+ atmega128 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    789	      0	      0	    789	    315	optiboot_atmega128_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART0_57600_12000000L.elf optiboot_atmega128_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART0_57600_12000000L.elf > optiboot_atmega128_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+36 of 260
+ atmega128 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=0 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    788	      0	      0	    788	    314	optiboot_atmega128_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART0_57600_8000000L.elf optiboot_atmega128_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART0_57600_8000000L.elf > optiboot_atmega128_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+37 of 260
+ atmega128 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    816	      0	      0	    816	    330	optiboot_atmega128_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART1_115200_20000000L.elf optiboot_atmega128_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART1_115200_20000000L.elf > optiboot_atmega128_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+38 of 260
+ atmega128 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    816	      0	      0	    816	    330	optiboot_atmega128_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART1_115200_16000000L.elf optiboot_atmega128_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART1_115200_16000000L.elf > optiboot_atmega128_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+39 of 260
+ atmega128 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    815	      0	      0	    815	    32f	optiboot_atmega128_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART1_57600_12000000L.elf optiboot_atmega128_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART1_57600_12000000L.elf > optiboot_atmega128_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+40 of 260
+ atmega128 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=1 BIGBOOT=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega128 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2 -DBIGBOOT=1   -DLED=B5           -DBIGBOOT -DUART=1 -Wl,--section-start=.text=0x1fc00 -Wl,--section-start=.version=0x1fffe -Wl,--relax -nostartfiles -o optiboot_atmega128_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega128_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    814	      0	      0	    814	    32e	optiboot_atmega128_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega128_UART1_57600_8000000L.elf optiboot_atmega128_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega128_UART1_57600_8000000L.elf > optiboot_atmega128_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+41 of 260
+ atmega162 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=0 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART0_115200_20000000L.elf optiboot_atmega162_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART0_115200_20000000L.elf > optiboot_atmega162_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+42 of 260
+ atmega162 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=0 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART0_115200_16000000L.elf optiboot_atmega162_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART0_115200_16000000L.elf > optiboot_atmega162_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+43 of 260
+ atmega162 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=0 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART0_57600_12000000L.elf optiboot_atmega162_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART0_57600_12000000L.elf > optiboot_atmega162_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+44 of 260
+ atmega162 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=0 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART0_57600_8000000L.elf optiboot_atmega162_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART0_57600_8000000L.elf > optiboot_atmega162_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+45 of 260
+ atmega162 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=0 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART1_115200_20000000L.elf optiboot_atmega162_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART1_115200_20000000L.elf > optiboot_atmega162_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+46 of 260
+ atmega162 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=0 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART1_115200_16000000L.elf optiboot_atmega162_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART1_115200_16000000L.elf > optiboot_atmega162_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+47 of 260
+ atmega162 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=0 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART1_57600_12000000L.elf optiboot_atmega162_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART1_57600_12000000L.elf > optiboot_atmega162_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+48 of 260
+ atmega162 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=0 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega162 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=0    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega162_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega162_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    418	      0	      0	    418	    1a2	optiboot_atmega162_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega162_UART1_57600_8000000L.elf optiboot_atmega162_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega162_UART1_57600_8000000L.elf > optiboot_atmega162_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+49 of 260
+ atmega164a AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART0_115200_20000000L.elf optiboot_atmega164a_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART0_115200_20000000L.elf > optiboot_atmega164a_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+50 of 260
+ atmega164a AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART0_115200_16000000L.elf optiboot_atmega164a_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART0_115200_16000000L.elf > optiboot_atmega164a_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+51 of 260
+ atmega164a AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART0_57600_12000000L.elf optiboot_atmega164a_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART0_57600_12000000L.elf > optiboot_atmega164a_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+52 of 260
+ atmega164a AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART0_57600_8000000L.elf optiboot_atmega164a_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART0_57600_8000000L.elf > optiboot_atmega164a_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+53 of 260
+ atmega164a AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART1_115200_20000000L.elf optiboot_atmega164a_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART1_115200_20000000L.elf > optiboot_atmega164a_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+54 of 260
+ atmega164a AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART1_115200_16000000L.elf optiboot_atmega164a_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART1_115200_16000000L.elf > optiboot_atmega164a_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+55 of 260
+ atmega164a AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART1_57600_12000000L.elf optiboot_atmega164a_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART1_57600_12000000L.elf > optiboot_atmega164a_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+56 of 260
+ atmega164a AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164a_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega164a_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164a_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164a_UART1_57600_8000000L.elf optiboot_atmega164a_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega164a_UART1_57600_8000000L.elf > optiboot_atmega164a_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+57 of 260
+ atmega164p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART0_115200_20000000L.elf optiboot_atmega164p_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART0_115200_20000000L.elf > optiboot_atmega164p_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+58 of 260
+ atmega164p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART0_115200_16000000L.elf optiboot_atmega164p_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART0_115200_16000000L.elf > optiboot_atmega164p_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+59 of 260
+ atmega164p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART0_57600_12000000L.elf optiboot_atmega164p_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART0_57600_12000000L.elf > optiboot_atmega164p_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+60 of 260
+ atmega164p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART0_57600_8000000L.elf optiboot_atmega164p_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART0_57600_8000000L.elf > optiboot_atmega164p_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+61 of 260
+ atmega164p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART1_115200_20000000L.elf optiboot_atmega164p_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART1_115200_20000000L.elf > optiboot_atmega164p_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+62 of 260
+ atmega164p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART1_115200_16000000L.elf optiboot_atmega164p_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART1_115200_16000000L.elf > optiboot_atmega164p_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+63 of 260
+ atmega164p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART1_57600_12000000L.elf optiboot_atmega164p_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART1_57600_12000000L.elf > optiboot_atmega164p_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+64 of 260
+ atmega164p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega164p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega164p_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega164p_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega164p_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega164p_UART1_57600_8000000L.elf optiboot_atmega164p_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega164p_UART1_57600_8000000L.elf > optiboot_atmega164p_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+65 of 260
+ atmega168 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+[7m
+
+66 of 260
+ atmega168 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+[7m
+
+67 of 260
+ atmega168 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+[7m
+
+68 of 260
+ atmega168 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5             -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168.elf optiboot.o 
+avr-size optiboot_atmega168.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168.elf optiboot_atmega168.hex
+avr-objdump -h -S optiboot_atmega168.elf > optiboot_atmega168.lst
+rm optiboot.o
+[7m
+
+69 of 260
+ atmega168p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_16MHz.elf optiboot.o 
+avr-size optiboot_atmega168p_16MHz.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_16MHz.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_16MHz.elf optiboot_atmega168p_16MHz.hex
+avr-objdump -h -S optiboot_atmega168p_16MHz.elf > optiboot_atmega168p_16MHz.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega168p_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_UART0_115200_20000000L.elf optiboot_atmega168p_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega168p_UART0_115200_20000000L.elf > optiboot_atmega168p_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+70 of 260
+ atmega168p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_16MHz.elf optiboot.o 
+avr-size optiboot_atmega168p_16MHz.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_16MHz.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_16MHz.elf optiboot_atmega168p_16MHz.hex
+avr-objdump -h -S optiboot_atmega168p_16MHz.elf > optiboot_atmega168p_16MHz.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega168p_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_UART0_115200_16000000L.elf optiboot_atmega168p_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega168p_UART0_115200_16000000L.elf > optiboot_atmega168p_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+71 of 260
+ atmega168p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_16MHz.elf optiboot.o 
+avr-size optiboot_atmega168p_16MHz.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_16MHz.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_16MHz.elf optiboot_atmega168p_16MHz.hex
+avr-objdump -h -S optiboot_atmega168p_16MHz.elf > optiboot_atmega168p_16MHz.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega168p_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_UART0_57600_12000000L.elf optiboot_atmega168p_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega168p_UART0_57600_12000000L.elf > optiboot_atmega168p_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+72 of 260
+ atmega168p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_16MHz.elf optiboot.o 
+avr-size optiboot_atmega168p_16MHz.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_16MHz.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_16MHz.elf optiboot_atmega168p_16MHz.hex
+avr-objdump -h -S optiboot_atmega168p_16MHz.elf > optiboot_atmega168p_16MHz.lst
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168p_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega168p_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168p_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168p_UART0_57600_8000000L.elf optiboot_atmega168p_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega168p_UART0_57600_8000000L.elf > optiboot_atmega168p_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+73 of 260
+ atmega168pb AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168pb_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega168pb_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168pb_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168pb_UART0_115200_20000000L.elf optiboot_atmega168pb_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega168pb_UART0_115200_20000000L.elf > optiboot_atmega168pb_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+74 of 260
+ atmega168pb AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168pb_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega168pb_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168pb_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168pb_UART0_115200_16000000L.elf optiboot_atmega168pb_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega168pb_UART0_115200_16000000L.elf > optiboot_atmega168pb_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+75 of 260
+ atmega168pb AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168pb_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega168pb_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168pb_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168pb_UART0_57600_12000000L.elf optiboot_atmega168pb_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega168pb_UART0_57600_12000000L.elf > optiboot_atmega168pb_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+76 of 260
+ atmega168pb AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega168pb -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega168pb_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega168pb_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega168pb_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega168pb_UART0_57600_8000000L.elf optiboot_atmega168pb_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega168pb_UART0_57600_8000000L.elf > optiboot_atmega168pb_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+77 of 260
+ atmega169 AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega169_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169_UART0_115200_20000000L.elf optiboot_atmega169_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega169_UART0_115200_20000000L.elf > optiboot_atmega169_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+78 of 260
+ atmega169 AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega169_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169_UART0_115200_16000000L.elf optiboot_atmega169_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega169_UART0_115200_16000000L.elf > optiboot_atmega169_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+79 of 260
+ atmega169 AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega169_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169_UART0_57600_12000000L.elf optiboot_atmega169_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega169_UART0_57600_12000000L.elf > optiboot_atmega169_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+80 of 260
+ atmega169 AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169 -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega169_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169_UART0_57600_8000000L.elf optiboot_atmega169_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega169_UART0_57600_8000000L.elf > optiboot_atmega169_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+81 of 260
+ atmega169p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169p_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega169p_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169p_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169p_UART0_115200_20000000L.elf optiboot_atmega169p_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega169p_UART0_115200_20000000L.elf > optiboot_atmega169p_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+82 of 260
+ atmega169p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169p_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega169p_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169p_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169p_UART0_115200_16000000L.elf optiboot_atmega169p_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega169p_UART0_115200_16000000L.elf > optiboot_atmega169p_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+83 of 260
+ atmega169p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169p_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega169p_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169p_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169p_UART0_57600_12000000L.elf optiboot_atmega169p_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega169p_UART0_57600_12000000L.elf > optiboot_atmega169p_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+84 of 260
+ atmega169p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B5 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega169p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B5           -DUART=0 -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe -Wl,--relax -nostartfiles -o optiboot_atmega169p_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega169p_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega169p_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega169p_UART0_57600_8000000L.elf optiboot_atmega169p_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega169p_UART0_57600_8000000L.elf > optiboot_atmega169p_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+85 of 260
+ atmega324a AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART0_115200_20000000L.elf optiboot_atmega324a_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART0_115200_20000000L.elf > optiboot_atmega324a_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+86 of 260
+ atmega324a AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART0_115200_16000000L.elf optiboot_atmega324a_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART0_115200_16000000L.elf > optiboot_atmega324a_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+87 of 260
+ atmega324a AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART0_57600_12000000L.elf optiboot_atmega324a_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART0_57600_12000000L.elf > optiboot_atmega324a_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+88 of 260
+ atmega324a AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART0_57600_8000000L.elf optiboot_atmega324a_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART0_57600_8000000L.elf > optiboot_atmega324a_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+89 of 260
+ atmega324a AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART1_115200_20000000L.elf optiboot_atmega324a_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART1_115200_20000000L.elf > optiboot_atmega324a_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+90 of 260
+ atmega324a AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART1_115200_16000000L.elf optiboot_atmega324a_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART1_115200_16000000L.elf > optiboot_atmega324a_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+91 of 260
+ atmega324a AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART1_57600_12000000L.elf optiboot_atmega324a_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART1_57600_12000000L.elf > optiboot_atmega324a_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+92 of 260
+ atmega324a AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324a -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324a_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324a_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega324a_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324a_UART1_57600_8000000L.elf optiboot_atmega324a_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324a_UART1_57600_8000000L.elf > optiboot_atmega324a_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+93 of 260
+ atmega324p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART0_115200_20000000L.elf optiboot_atmega324p_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART0_115200_20000000L.elf > optiboot_atmega324p_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+94 of 260
+ atmega324p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART0_115200_16000000L.elf optiboot_atmega324p_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART0_115200_16000000L.elf > optiboot_atmega324p_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+95 of 260
+ atmega324p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART0_57600_12000000L.elf optiboot_atmega324p_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART0_57600_12000000L.elf > optiboot_atmega324p_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+96 of 260
+ atmega324p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART0_57600_8000000L.elf optiboot_atmega324p_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART0_57600_8000000L.elf > optiboot_atmega324p_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+97 of 260
+ atmega324p AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART1_115200_20000000L.elf optiboot_atmega324p_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART1_115200_20000000L.elf > optiboot_atmega324p_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+98 of 260
+ atmega324p AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART1_115200_16000000L.elf optiboot_atmega324p_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART1_115200_16000000L.elf > optiboot_atmega324p_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+99 of 260
+ atmega324p AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART1_57600_12000000L.elf optiboot_atmega324p_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART1_57600_12000000L.elf > optiboot_atmega324p_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+100 of 260
+ atmega324p AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324p -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324p_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324p_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324p_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324p_UART1_57600_8000000L.elf optiboot_atmega324p_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324p_UART1_57600_8000000L.elf > optiboot_atmega324p_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+101 of 260
+ atmega324pa AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART0_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART0_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART0_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART0_115200_20000000L.elf optiboot_atmega324pa_UART0_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART0_115200_20000000L.elf > optiboot_atmega324pa_UART0_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+102 of 260
+ atmega324pa AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART0_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART0_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART0_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART0_115200_16000000L.elf optiboot_atmega324pa_UART0_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART0_115200_16000000L.elf > optiboot_atmega324pa_UART0_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+103 of 260
+ atmega324pa AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART0_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART0_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART0_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART0_57600_12000000L.elf optiboot_atmega324pa_UART0_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART0_57600_12000000L.elf > optiboot_atmega324pa_UART0_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+104 of 260
+ atmega324pa AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART0_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART0_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART0_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART0_57600_8000000L.elf optiboot_atmega324pa_UART0_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART0_57600_8000000L.elf > optiboot_atmega324pa_UART0_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+105 of 260
+ atmega324pa AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 113636, UBRRL = 21, Difference=-1.3%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART1_115200_20000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART1_115200_20000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART1_115200_20000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART1_115200_20000000L.elf optiboot_atmega324pa_UART1_115200_20000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART1_115200_20000000L.elf > optiboot_atmega324pa_UART1_115200_20000000L.lst
+rm optiboot.o
+[7m
+
+106 of 260
+ atmega324pa AVR_FREQ=16000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 115200, Real: 117647, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=16000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART1_115200_16000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART1_115200_16000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART1_115200_16000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART1_115200_16000000L.elf optiboot_atmega324pa_UART1_115200_16000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART1_115200_16000000L.elf > optiboot_atmega324pa_UART1_115200_16000000L.lst
+rm optiboot.o
+[7m
+
+107 of 260
+ atmega324pa AVR_FREQ=12000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 57692, UBRRL = 25, Difference=0.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=12000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART1_57600_12000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART1_57600_12000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART1_57600_12000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART1_57600_12000000L.elf optiboot_atmega324pa_UART1_57600_12000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART1_57600_12000000L.elf > optiboot_atmega324pa_UART1_57600_12000000L.lst
+rm optiboot.o
+[7m
+
+108 of 260
+ atmega324pa AVR_FREQ=8000000L BAUD_RATE=57600 LED=B0 LED_START_FLASHES=2 UART=1 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1   -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pa -DF_CPU=8000000L  -DBAUD_RATE=57600 -DLED_START_FLASHES=2    -DLED=B0           -DUART=1 -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega324pa_UART1_57600_8000000L.elf optiboot.o 
+avr-size optiboot_atmega324pa_UART1_57600_8000000L.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega324pa_UART1_57600_8000000L.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega324pa_UART1_57600_8000000L.elf optiboot_atmega324pa_UART1_57600_8000000L.hex
+avr-objdump -h -S optiboot_atmega324pa_UART1_57600_8000000L.elf > optiboot_atmega324pa_UART1_57600_8000000L.lst
+rm optiboot.o
+[7m
+
+109 of 260
+ atmega324pb AVR_FREQ=20000000L BAUD_RATE=115200 LED=B0 LED_START_FLASHES=2 UART=0 [0m
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 57600, Real: 58823, UBRRL = 16, Difference=2.1%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega324pb -DF_CPU=20000000L  -DBAUD_RATE=115200 -DLED_START_FLASHES=2    -DLED=B0           -DUART=0   -c -o optiboot.o optiboot.c
+
+# GNOME TERMINAL (rev.: 3.36.2) CRASHED after building above hex-files !!!
