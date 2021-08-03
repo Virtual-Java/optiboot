@@ -1,13 +1,13 @@
 # 1 "baudcheck.c"
-# 1 "/home/jonathan/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/original-github/optiboot/optiboot/bootloaders/optiboot//"
+# 1 "/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Assembler/Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot//"
 # 1 "<eingebaut>"
 # 1 "<Kommandozeile>"
 # 1 "baudcheck.c"
 # 24 "baudcheck.c"
-bpsx=57600
+bpsx=111111
 bps=${bpsx/L/}
 bps=${bps/U/}
-fcpux=8000000L
+fcpux=16000000L
 fcpu=${fcpux/L/}
 fcpu=${fcpu/U/}
 # 38 "baudcheck.c"
