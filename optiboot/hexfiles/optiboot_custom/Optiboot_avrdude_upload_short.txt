@@ -1,0 +1,177 @@
+#optiboot/hexfiles/avr_usb_mcus$
+
+Open the Arduino IDE and compile "Blink.ino"
+Do not try to upload to Arduino Micro in the Arduino IDE as there is no entry to upload to Arduino Micro connected via serial1.
+
+
+Upload via commercial USB to Serial(RS232) Converter and RS232 to UART (TTL level) driver/reciever board containing a MAX232. Not tested with a MAX3232 (3.3 volt version of MAX232) yet, but should work too.
+If your PC has a very useful serial output builtin, you don't need a USB to Serial Converter, but the RS232 to UART board will be required anyway.
+In this case replace "/dev/ttyUSB3" by your builtin serial port, it should be something like "/dev/ttyS0".
+
+#user@pc:~$ (doesn't matter due to absolute paths)
+#~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega32u4 -carduino -P/dev/ttyUSB3 -b115200 -D -Uflash:w:/tmp/arduino_build_121209/Blink.ino.hex:i
+You have to adapt the temporary path to your Blink.ino.hex file to fit the Arduino IDEs output directory of your previous build.
+
+UPLOADING DMJLAMBERTS OPTIBOOT FORK (ADDS ATMEGA32U4 SUPPORT) TO ARDUINO MICRO:
+
+Optiboot_Atmega32u4_download/FNMAXYKIDMXJSF2/optiboothex/assortment32u4optiboot$ 
+#~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega32u4 -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega32u4_115200_B0dataflash.hex -U lock:w:0x2f:m
+
+Upload Blink.ino to Arduino Micro with dmjlamberts optiboot fork (works):
+
+/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega32u4 -c arduino -P /dev/ttyUSB1 -b115200 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i
+
+
+My own fork of optiboot doesn't work!!!
+
+Optiboot/modified/optiboot/optiboot/hexfiles/avr_usb_mcus$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega32u4 -P usb -e -u -U efuse:w:0xFB:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega32u4_UART1_115200_16000000L.hex -U lock:w:0x2f:m
+
+Upload Blink.ino fails:
+
+Compiling optiboot for Arduino Uno (atmega328p) on GigabytePC (using makeall.arduino script) works:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/arduino$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328.hex:i -U lock:w:0x2f:m
+
+
+Uploading Blink to standalone atmega328p on a breadboard (works):
+/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b115200 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i
+
+
+By the way uploading to an arduinos IO/main MCU doesn't work when an external RS232 to Uart converter is connected to the target MCUs UART lines.
+The reason for this is:
+The RS232 to UART TXD drivers output (connected to Arduino main MCUs RXD input) is hold HIGH in idle state.
+Therefore the higher impedance* TXD output of the onboard USB to UART software bridge implemented in the USB MCU (atmega16u2) cannot tie the main μCs RXD input to LOW.
+*Since the USB MCUs TX and RX pins are connected to the main MCUs RX and TX pins by a 1kΩ resistor the lines impedance is higher than a (MAX232) drivers output.
+
+
+Compiling dmjlamberts optiboot fork with gcc5.4 (418 Bytes only):
+
+make atmega32u4 LED_START_FLASHES=0 LED=C7
+avr-gcc (GCC) 5.4.0
+
+Uploading selfcompiled DMJLAMBERTS Optiboot fork (Adds Atmega32u4 support) to Arduino Micro:
+
+Optiboot_Atmega32u4_download/compiled_with_gcc5_4_GBPC$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega32u4 -P usb -e -u -U efuse:w:0xFB:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega32u4.hex:i -U lock:w:0x2f:m
+
+
+Upload Blink.ino to Arduino Micro with dmjlamberts optiboot fork works too!!!
+
+Uploading precompiled AsmOptiboot to Arduino Uno main MCU (atmega328p):
+Test Blink sketch ==> does not work!!!
+
+Arduino/Assembler/asmOptiboot-main$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b250000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload fails
+
+avrdude: Version 6.3-20190619
+
+Burn precompiled ASMboot bootloader (115200 Baud) to Arduino Uno main MCU (atmega328p):
+Arduino/Assembler/ASMboot-master$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:ASMboot_328_16.hex:i -U lock:w:0x2f:m ==> upload successful
+
+Upload Blink sketch to Arduino Uno main MCU (atmega328p) with precompiled ASMboot bootloader (115200 Baud) via USB MCU (works):
+Arduino/Assembler/ASMboot-master$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i
+
+Upload Blink sketch to Arduino Uno main MCU (atmega328p) with precompiled ASMboot bootloader (115200 Baud) via RS232toUART (works):
+Arduino/Assembler/ASMboot-master$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b115200 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i
+
+Burn precompiled ASMboot bootloader (250000 Baud) to Arduino Uno main MCU (atmega328p):
+Arduino/Assembler/ASMboot-master$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:ASMboot_328_16_250.hex:i -U lock:w:0x2f:m ==> Burned successfully
+
+Upload Blink sketch to Arduino Uno main MCU (atmega328p) with precompiled ASMboot bootloader (250000 Baud) via USB MCU (doesn't work!!!):
+/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b250000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Upload Blink sketch to Arduino Uno main MCU (atmega328p) with precompiled ASMboot bootloader (250000 Baud) via RS232toUART (doesn't work!!!):
+Arduino/Assembler/ASMboot-master$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b250000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+
+OPTIBOOT_CUSTOM_BAUDRATES:
+
+Compile Optiboot Bootloader (BAUD_RATE=250000) with gcc5.4 for Arduino Uno Board (atmega328):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=250000 ==> 482 Bytes, 0% Diff.
+Burn Optiboot Bootloader (BAUD_RATE=250000) compiled with gcc5.4 to Arduino Uno Board: ==> Burned successfully
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_250000.hex:i -U lock:w:0x2f:m ==> Uploaded successfully
+
+Upload Blink Sketch with BAUD_RATE=250000 to Arduino Uno Board (AtMega328p):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b250000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+...avrdude: serial_baud_lookup(): Using non-standard baud rate: 250000avrdude: stk500_recv(): programmer is not responding...
+
+Compile Optiboot Bootloader (BAUD_RATE=500000) with gcc5.4 for Arduino Uno Board (atmega328):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=500000 ==> 482 Bytes, 0% Diff.
+Burn Optiboot Bootloader (BAUD_RATE=500000) compiled with gcc5.4 to Arduino Uno Board: ==> Burned successfully
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_500000.hex:i -U lock:w:0x2f:m ==> Uploaded successfully
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (doesn't work!!!):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b500000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Upload blink sketch with BAUD_RATE=500000 to Arduino Uno Board (Hoodloader2.0.5 bootloader on atmega16u2) (AtMega328p) (doesn't work!!!):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b500000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (RS232 to UART converter MAX232) (AtMega328p) (doesn't work!!!):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b500000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Compile Optiboot Bootloader (BAUD_RATE=38400) with gcc5.4 for Arduino Uno Board (atmega328): ==> 482 Bytes, 0,1% Diff.
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=38400
+Burn Optiboot Bootloader (BAUD_RATE=38400) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_38400.hex:i -U lock:w:0x2f:m ==> Burned successfully
+Upload Blink Sketch with BAUD_RATE=38400 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works!!!):
+/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b38400 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Uploaded successfully
+
+Compile Optiboot Bootloader (BAUD_RATE=125000) with gcc5.4 for Arduino Uno Board (atmega328): ==> 482 Bytes, 0,1% Diff.
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=125000
+
+Burn Optiboot Bootloader (BAUD_RATE=125000) compiled with gcc5.4 to Arduino Uno Board:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_38400.hex:i -U lock:w:0x2f:m ==> Burned successfully
+
+Upload Blink Sketch with BAUD_RATE=125000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (doesn't work):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b125000 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Compile Optiboot Bootloader (BAUD_RATE=111111) with gcc5.4 for Arduino Uno Board (atmega328): ==> 482 Bytes, 0% Diff.
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=111111
+
+Burn Optiboot Bootloader (BAUD_RATE=111111) compiled with gcc5.4 to Arduino Uno Board:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_111111.hex:i -U lock:w:0x2f:m ==> Burned successfully
+
+Upload Blink Sketch with BAUD_RATE=111111 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (doesn't work):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b111111 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload failed
+
+Upload Blink Sketch with BAUD_RATE=111111 to Arduino Uno Board (RS232 to UART converter MAX232) (AtMega328p) (doesn't work, reproducible crazy output!!!):
+First Upload:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b111111 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload crazy (mix of programmer not responding and correct upload with data)
+
+Second upload:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ /home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b111111 -D -Uflash:w:/tmp/arduino_build_292450/Blink.ino.hex:i ==> Upload crazy (mix of programmer not responding and correct upload with data)
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 111111
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 111111avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00...
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x00
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us...
+         Programmer Type : Arduino
+         Description     : Arduino
+avrdude: stk500_recv(): programmer is not responding...
+         Hardware Version: 4238814
+         Firmware Version: 25196496.0
+         Topcard         : Unknown
+avrdude: stk500_recv(): programmer is not responding...
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+avrdude: stk500_recv(): programmer is not responding
+
+avrdude done.  Thank you.
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (RS232 to UART converter MAX232) (AtMega328p) (doesn't work!!!):
+While the BaudRate 115200 works, non-standard, not significantly lower/higher BaudRates (111111, 125000, 250000, 500000) don't work, although the difference from the desired BaudRate is 0.0%
+
+
+
