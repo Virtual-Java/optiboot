@@ -4,7 +4,7 @@
 # 1 "<Kommandozeile>"
 # 1 "baudcheck.c"
 # 24 "baudcheck.c"
-bpsx=111111
+bpsx=666666
 bps=${bpsx/L/}
 bps=${bps/U/}
 fcpux=16000000L

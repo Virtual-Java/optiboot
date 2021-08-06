@@ -1,0 +1,2566 @@
+NEW_TESTS_06_08_2021:
+
+Burn Optiboot Bootloader (BAUD_RATE=111111) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_115200.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_115200.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_115200.hex:
+avrdude: load data flash data from input file optiboot_atmega328_115200.hex:
+avrdude: input file optiboot_atmega328_115200.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=115200 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (924 bytes):
+
+Writing | ################################################## | 100% 0.21s
+
+avrdude: 924 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 924 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.14s
+
+avrdude: verifying ...
+avrdude: 924 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=115200 to Arduino Uno Board (via native serial port "/dev/ttyS0") (AtMega328p) (works):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyS0 -b115200 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+ 
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyS0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x00
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (924 bytes):
+
+Writing | ################################################## | 100% 0.17s
+
+avrdude: 924 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 924 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.10s
+
+avrdude: verifying ...
+avrdude: 924 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot Bootloader (BAUD_RATE=125000) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_125000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_125000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_125000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_125000.hex:
+avrdude: input file optiboot_atmega328_125000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=125000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (doesn't work):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b125000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 125000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 125000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 5 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 6 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 7 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 8 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 9 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=115200 to Arduino Uno Board (via native serial port "/dev/ttyS0") (AtMega328p) (doesn't work):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyS0 -b125000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i 
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyS0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 125000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 125000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 5 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 6 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 7 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 8 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 9 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00
+
+avrdude done.  Thank you.
+
+AFTER configure CUSTOM SPEED in Linux (Mint) using Linux-arbitrary-baud from Github:
+
+git clone https://github.com/GrantEdwards/Linux-arbitrary-baud & cd Linux-arbitrary-baud
+cc -g -Wall arbitrary-baud.c -o arbaud-Wall
+
+./arbaud /dev/ttyACM0 125000
+
+Test maximum (theoretical!!!) USB value (reported by the script!!!):
+
+#./arbaud-Wall /dev/ttyACM0 2147483647
+	actual speed reported 2147483647
+#./arbaud-Wall /dev/ttyACM0 2147483648
+	actual speed reported -2147483648
+
+The maximum baud rate supported by Hoodloader2 (USB-Port of Arduino Uno, Mega, Leonardo, Micro) is 2 mega baud = 2 Mbaud = 2000 kbaud = 2000000 baud
+
+The maximum baud rate of the native serial port of my computer was a bit higher than 115200 baud (e.g. to calibrate).
+#./arbaud-Wall /dev/ttyS0 116352
+	actual speed reported 116352
+#./arbaud-Wall /dev/ttyS0 116353
+	actual speed reported 115200
+
+
+
+Upload Blink Sketch with BAUD_RATE=125000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 125000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b125000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 125000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 125000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (924 bytes):
+
+Writing | ################################################## | 100% 0.20s
+
+avrdude: 924 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 924 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.13s
+
+avrdude: verifying ...
+avrdude: 924 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=125000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX232) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyUSB1 125000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b125000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 125000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 125000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (924 bytes):
+
+Writing | ################################################## | 100% 0.38s
+
+avrdude: 924 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 924 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.26s
+
+avrdude: verifying ...
+avrdude: 924 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot Bootloader (BAUD_RATE=250000) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_250000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_250000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_250000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_250000.hex:
+avrdude: input file optiboot_atmega328_250000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=250000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 250000 ==> actual speed reported 250000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b250000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 250000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 250000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (924 bytes):
+
+Writing | ################################################## | 100% 0.18s
+
+avrdude: 924 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 924 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.10s
+
+avrdude: verifying ...
+avrdude: 924 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=250000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX232) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyUSB1 250000 ==> actual speed reported 250000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b250000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 250000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 250000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x00
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.26s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot Bootloader (BAUD_RATE=500000) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_500000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_500000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_500000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_500000.hex:
+avrdude: input file optiboot_atmega328_500000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 500000 ==> actual speed reported 500000
+	alternatively for standard baud rates: User@PC:~$ stty -F /dev/ttyACM0 500000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b500000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.14s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.07s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX232) (AtMega328p) (doesn't work):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 500000 ==> actual speed reported 500000
+	alternatively for standard baud rates: User@PC:~$ stty -F /dev/ttyUSB1 500000
+First try:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b500000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x10
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 5 of 10: not in sync: resp=0x10
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x14
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x10
+         Hardware Version: 4238814
+         Firmware Version: 12216272.3
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x1c
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x03
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x10
+         Vtarget         : 0.2 V
+         Varef           : 0.3 V
+         Oscillator      : Off
+         SCK period      : 0.1 us
+
+avrdude: stk500_initialize(): (b) protocol error, expect=0x10, resp=0x03
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+avrdude: stk500_disable(): protocol error, expect=0x14, resp=0x10
+
+avrdude done.  Thank you.
+
+Second try:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b500000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x10
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 5 of 10: not in sync: resp=0x10
+avrdude: stk500_getsync() attempt 6 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 7 of 10: not in sync: resp=0x10
+avrdude: stk500_getsync() attempt 8 of 10: not in sync: resp=0x1c
+avrdude: stk500_getsync() attempt 9 of 10: not in sync: resp=0x10
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x1c
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x10
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x14
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x10
+         Hardware Version: 4238814
+         Firmware Version: 19425232.0
+         Topcard         : Unknown
+         Vtarget         : 0.3 V
+         Varef           : 0.8 V
+         Oscillator      : 115.200 kHz
+         SCK period      : 3.3 us
+
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x1c
+
+avrdude: stk500_getparm(): (a) protocol error, expect=0x14, resp=0x20
+avrdude: stk500_initialize(): (a) protocol error, expect=0x14, resp=0x66
+avrdude: initialization failed, rc=-1
+         Double check connections and try again, or use -F to override
+         this check.
+
+avrdude: stk500_disable(): protocol error, expect=0x14, resp=0x45
+
+avrdude done.  Thank you.
+
+With MAX232 NO reliable connection was possible in 8 tries.
+==> further tests with MAX3232
+
+Upload Blink Sketch with BAUD_RATE=500000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX3232!!!) (AtMega328p) (works):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b500000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.26s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+All of the four tests I did (4/4) were successful!!!
+
+
+Compile Optiboot Bootloader (BAUD_RATE=2000000) with gcc5.4 for Arduino Uno Board (atmega328):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=1000000
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 1000000, Real: 1000000, UBRRL = 1, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=1000000 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=1000000 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    482	      0	      0	    482	    1e2	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+
+
+Burn Optiboot Bootloader (BAUD_RATE=1000000) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_1000000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_1000000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_1000000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_1000000.hex:
+avrdude: input file optiboot_atmega328_1000000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+
+Upload Blink Sketch with BAUD_RATE=1000000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 1000000 ==> actual speed reported 1000000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b1000000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 1000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 1000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.14s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.08s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=1000000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX3232!!!) (AtMega328p) (doesn't work):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyUSB1 1000000 ==> actual speed reported 1000000
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b1000000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 1000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 1000000avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 1 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 2 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 3 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 4 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 5 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 6 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 7 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 8 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 9 of 10: not in sync: resp=0x00
+avrdude: stk500_recv(): programmer is not responding
+avrdude: stk500_getsync() attempt 10 of 10: not in sync: resp=0x00
+
+avrdude done.  Thank you.
+
+MAX3232 is specified to operate up to 250kbit/s; We failed at 1 Mbaud = 1000000 baud = 1 Mbit/s = 4 * 250 kibit/s
+
+
+
+Compile Optiboot Bootloader (BAUD_RATE=2000000) with gcc5.4 for Arduino Uno Board (atmega328):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=2000000
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 2000000, Real: 2000000, UBRRL = 0, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=2000000 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=2000000 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+
+
+Burn Optiboot Bootloader (BAUD_RATE=2000000) compiled with gcc5.4 to Arduino Uno Board:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_2000000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_2000000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_2000000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_2000000.hex:
+avrdude: input file optiboot_atmega328_2000000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=2000000 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 2000000 ==> actual speed reported 2000000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.13s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.07s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=2000000 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX3232!!!) (AtMega328p) ():
+It doesn't make sence to try this, when the half baud rate of 1 Mbaud already failed.
+
+TRY HOODLOADER2 instead!!!
+
+Burn Hoodloader USB Bootloader (BAUD_RATE=2000000) compiled with gcc5.4 to Arduino Uno Board:
+dev206_original_2021_07_24/Hoodloader2/avr/bootloaders/HexFiles$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega16u2 -e -u -U flash:w:HoodLoader2_0_5_Uno_atmega16u2.hex:i -U efuse:w:0xFC:m -U hfuse:w:0xD8:m -U lfuse:w:0xEF:m -U lock:w:0x0f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9489 (probably m16u2)
+avrdude: erasing chip
+avrdude: reading input file "HoodLoader2_0_5_Uno_atmega16u2.hex"
+avrdude: writing flash (16384 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 16384 bytes of flash written
+avrdude: verifying flash memory against HoodLoader2_0_5_Uno_atmega16u2.hex:
+avrdude: load data flash data from input file HoodLoader2_0_5_Uno_atmega16u2.hex:
+avrdude: input file HoodLoader2_0_5_Uno_atmega16u2.hex contains 16384 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 16384 bytes of flash verified
+avrdude: reading input file "0xFC"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFC:
+avrdude: load data efuse data from input file 0xFC:
+avrdude: input file 0xFC contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xD8"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xD8:
+avrdude: load data hfuse data from input file 0xD8:
+avrdude: input file 0xD8 contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xEF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xEF:
+avrdude: load data lfuse data from input file 0xEF:
+avrdude: input file 0xEF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "0x0f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x0f:
+avrdude: load data lock data from input file 0x0f:
+avrdude: input file 0x0f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+Upload blink sketch with BAUD_RATE=2000000 to Arduino Uno Board (Hoodloader2.0.5 bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 2000000 ==> actual speed reported 2000000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.13s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.08s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+Two Tests were successful, the first test failed due to reset jumper closed with external wire ==> to high impedance ==> resolder jumper instead
+
+Compile Optiboot Bootloader (BAUD_RATE=333333) with gcc5.4 for Arduino Uno Board (atmega328):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=333333
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 333333, Real: 333333, UBRRL = 5, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=333333 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=333333 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+
+Burn Optiboot Bootloader (BAUD_RATE=333333) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_333333.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_333333.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_333333.hex:
+avrdude: load data flash data from input file optiboot_atmega328_333333.hex:
+avrdude: input file optiboot_atmega328_333333.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=666666 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 333333 ==> actual speed reported 333333
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b333333 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 333333
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 333333         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.16s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.10s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=333333 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX3232!!!) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyUSB1 333333 ==> actual speed reported 333333
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b333333 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 333333
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 333333         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.26s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+
+Compile Optiboot Bootloader (BAUD_RATE=666666) with gcc5.4 for Arduino Uno Board (atmega328):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot$ make atmega328 BAUD_RATE=666666
+avr-gcc (GCC) 5.4.0
+Copyright (C) 2015 Free Software Foundation, Inc.
+Dies ist freie Software; die Kopierbedingungen stehen in den Quellen. Es
+gibt KEINE Garantie; auch nicht für MARKTGÄNGIGKEIT oder FÜR SPEZIELLE ZWECKE.
+
+BAUD RATE CHECK: Desired: 666666, Real: 666666, UBRRL = 2, Difference=0.0%
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=666666 -DLED_START_FLASHES=3                 -c -o optiboot.o optiboot.c
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax -mmcu=atmega328p -DF_CPU=16000000L  -DBAUD_RATE=666666 -DLED_START_FLASHES=3               -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe -Wl,--relax -nostartfiles -o optiboot_atmega328.elf optiboot.o 
+avr-size optiboot_atmega328.elf
+   text	   data	    bss	    dec	    hex	filename
+    480	      0	      0	    480	    1e0	optiboot_atmega328.elf
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega328.elf optiboot_atmega328.hex
+avr-objdump -h -S optiboot_atmega328.elf > optiboot_atmega328.lst
+rm optiboot.o
+
+Burn Optiboot Bootloader (BAUD_RATE=666666) compiled with gcc5.4 to Arduino Uno Board:
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_666666.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_666666.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_666666.hex:
+avrdude: load data flash data from input file optiboot_atmega328_666666.hex:
+avrdude: input file optiboot_atmega328_666666.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+Upload Blink Sketch with BAUD_RATE=666666 to Arduino Uno Board (Original DFU bootloader on atmega16u2) (AtMega328p) (works):
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyACM0 666666 ==> actual speed reported 666666
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b666666 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 666666
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 666666         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.15s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.07s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Upload Blink Sketch with BAUD_RATE=666666 to Arduino Uno Board (custom USB to Serial converter and RS232 to UART converter board with MAX3232!!!) (AtMega328p) ():
+User@PC:~/path/to/github/repository/Linux-arbitrary-baud$ ./arbaud-Wall /dev/ttyUSB1 666666 ==> actual speed reported 666666
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b666666 -D -Uflash:w:/tmp/arduino_build_371636/Blink.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 666666
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 666666         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_371636/Blink.ino.hex"
+avrdude: writing flash (922 bytes):
+
+Writing | ################################################## | 100% 0.26s
+
+avrdude: 922 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_371636/Blink.ino.hex:
+avrdude: input file /tmp/arduino_build_371636/Blink.ino.hex contains 922 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.26s
+
+avrdude: verifying ...
+avrdude: 922 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+23kB_PROGRAM_TEST (worked):
+
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyUSB1 -b666666 -D -Uflash:w:/tmp/arduino_build_624319/DebugWireDebuggerProgrammer.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyUSB1
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 666666
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 666666         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_624319/DebugWireDebuggerProgrammer.ino.hex"
+avrdude: writing flash (23430 bytes):
+
+Writing | ################################################## | 100% 5.89s
+
+avrdude: 23430 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_624319/DebugWireDebuggerProgrammer.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_624319/DebugWireDebuggerProgrammer.ino.hex:
+avrdude: input file /tmp/arduino_build_624319/DebugWireDebuggerProgrammer.ino.hex contains 23430 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 5.89s
+
+avrdude: verifying ...
+avrdude: 23430 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+In my tests 666666 baud was the absolute maximum possible with MAX3232, but it's strongly not recommanded to use such high baud rates for productive designs!!!
