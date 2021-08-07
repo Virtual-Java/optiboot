@@ -1,0 +1,1925 @@
+TEST upload speed to a Arduino Uno (AtMega328p) running Optiboot (IO-MCU) and official DFU Firmware on USB to UART bridge controller (USB-MCU):
+As a host system I used LINUX (Mint), but other modern linux distributions should work too.
+
+Burn original Optiboot bootloader (BAUD=115200):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_115200.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_115200.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_115200.hex:
+avrdude: load data flash data from input file optiboot_atmega328_115200.hex:
+avrdude: input file optiboot_atmega328_115200.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 115200 Baud to Arduino Uno Board with Atmega328p:
+stty -F /dev/ttyACM0 115200
+First test:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 6.46s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.36s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Second test:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 6.52s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.37s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Test without chip erase (same content):
+First test:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -D -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 6.49s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.43s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Second test:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 6.44s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.37s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot bootloader (BAUD=250000):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_250000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_250000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_250000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_250000.hex:
+avrdude: input file optiboot_atmega328_250000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 250000 Baud to Arduino Uno Board with Atmega328p:
+Linux-arbitrary-baud$ ./arbaud /dev/ttyACM0 250000 ==> actual speed reported 250000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b250000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 250000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 250000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 5.43s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.36s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Test without chip erase (same content):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b250000 -D -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 250000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 250000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 5.46s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 3.33s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot bootloader (BAUD=500000):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_500000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_500000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_500000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_500000.hex:
+avrdude: input file optiboot_atmega328_500000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 500000 Baud to Arduino Uno Board with Atmega328p:
+stty -F /dev/ttyACM0 500000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b500000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.39s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.35s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Test without chip erase (same content):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b500000 -D -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 500000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 500000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.47s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.35s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot bootloader (BAUD=1000000):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_1000000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_1000000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_1000000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_1000000.hex:
+avrdude: input file optiboot_atmega328_1000000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 1000000 Baud to Arduino Uno Board with Atmega328p:
+stty -F /dev/ttyACM0 1000000
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b1000000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 1000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 1000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.43s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.37s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Test without chip erase (same content):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b1000000 -D -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 1000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 1000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.01s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.44s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.42s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 2000000 Baud to Arduino Uno Board with Atmega328p:
+stty -F /dev/ttyACM0 2000000
+First test (BEFORE all of the other tests with different baud rates):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.39s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.34s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+Second test (BEFORE all of the other tests with different baud rates):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.42s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.30s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Burn Optiboot bootloader (BAUD=2000000):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_2000000.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_2000000.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_2000000.hex:
+avrdude: load data flash data from input file optiboot_atmega328_2000000.hex:
+avrdude: input file optiboot_atmega328_2000000.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 2000000 Baud to Arduino Uno Board with Atmega328p:
+stty -F /dev/ttyACM0 2000000
+Third test (AFTER all of the other tests with different baud rates):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -e -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.41s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.42s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Test without chip erase (same content):
+Fourth test (AFTER all of the other tests with different baud rates):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -D -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.37s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.32s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+Test without disabling auto erase for flash memory (without the -D flag):
+Fourth test (AFTER all of the other tests with different baud rates):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b2000000 -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 2000000
+avrdude: serial_baud_lookup(): Using non-standard baud rate: 2000000         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 4.38s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 2.39s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+CHECK if baud 115200 is still working (and the flash isn't worn out):
+Burn Optiboot bootloader (BAUD=115200):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino18/etc/avrdude.conf -c usbasp -p atmega328p -P usb -e -u -U efuse:w:0xFE:m -U hfuse:w:0xDE:m -U lfuse:w:0xFF:m -U flash:w:optiboot_atmega328_115200.hex:i -U lock:w:0x2f:m
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: erasing chip
+avrdude: reading input file "0xFE"
+avrdude: writing efuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of efuse written
+avrdude: verifying efuse memory against 0xFE:
+avrdude: load data efuse data from input file 0xFE:
+avrdude: input file 0xFE contains 1 bytes
+avrdude: reading on-chip efuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of efuse verified
+avrdude: reading input file "0xDE"
+avrdude: writing hfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of hfuse written
+avrdude: verifying hfuse memory against 0xDE:
+avrdude: load data hfuse data from input file 0xDE:
+avrdude: input file 0xDE contains 1 bytes
+avrdude: reading on-chip hfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of hfuse verified
+avrdude: reading input file "0xFF"
+avrdude: writing lfuse (1 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xFF:
+avrdude: load data lfuse data from input file 0xFF:
+avrdude: input file 0xFF contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lfuse verified
+avrdude: reading input file "optiboot_atmega328_115200.hex"
+avrdude: writing flash (32768 bytes):
+
+Writing | ################################################## | 100% 0.00s
+
+avrdude: 32768 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega328_115200.hex:
+avrdude: load data flash data from input file optiboot_atmega328_115200.hex:
+avrdude: input file optiboot_atmega328_115200.hex contains 32768 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 32768 bytes of flash verified
+avrdude: reading input file "0x2f"
+avrdude: writing lock (1 bytes):
+
+Writing | ################################################## | 100% 0.01s
+
+avrdude: 1 bytes of lock written
+avrdude: verifying lock memory against 0x2f:
+avrdude: load data lock data from input file 0x2f:
+avrdude: input file 0x2f contains 1 bytes
+avrdude: reading on-chip lock data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: 1 bytes of lock verified
+
+avrdude done.  Thank you.
+
+
+Perform chip erase and upload lipsum (32256 Bytes) at 115200 Baud to Arduino Uno Board with Atmega328p:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/optiboot_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega328p -c arduino -P /dev/ttyACM0 -b115200 -Uflash:w:/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : /dev/ttyACM0
+         Using Programmer              : arduino
+         Overriding Baud Rate          : 115200
+         AVR Part                      : ATmega328P
+         Chip Erase delay              : 9000 us
+         PAGEL                         : PD7
+         BS2                           : PC2
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 200
+         StabDelay                     : 100
+         CmdexeDelay                   : 25
+         SyncLoops                     : 32
+         ByteDelay                     : 0
+         PollIndex                     : 3
+         PollValue                     : 0x53
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           eeprom        65    20     4    0 no       1024    4      0  3600  3600 0xff 0xff
+           flash         65     6   128    0 yes     32768  128    256  4500  4500 0xff 0xff
+           lfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           hfuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           efuse          0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           lock           0     0     0    0 no          1    0      0  4500  4500 0x00 0x00
+           calibration    0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+
+         Programmer Type : Arduino
+         Description     : Arduino
+         Hardware Version: 3
+         Firmware Version: 8.2
+         Vtarget         : 0.3 V
+         Varef           : 0.3 V
+         Oscillator      : 28.800 kHz
+         SCK period      : 3.3 us
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f (probably m328p)
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "/tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex"
+avrdude: writing flash (32256 bytes):
+
+Writing | ################################################## | 100% 6.50s
+
+avrdude: 32256 bytes of flash written
+avrdude: verifying flash memory against /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: load data flash data from input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex:
+avrdude: input file /tmp/arduino_build_122835/lipsum_write_1MByte.ino.hex contains 32256 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 4.39s
+
+avrdude: verifying ...
+avrdude: 32256 bytes of flash verified
+
+avrdude: safemode: lfuse reads as 0
+avrdude: safemode: hfuse reads as 0
+avrdude: safemode: efuse reads as 0
+avrdude: safemode: Fuses OK (E:00, H:00, L:00)
+
+avrdude done.  Thank you.
+
+
+Summary:
+ 115200 baud Ø: r: 0.00s; w: 6.49s; v: 4.39s
+ 250000 baud Ø: r: 0.01s; w: 5.45s; v: 3.35s
+ 500000 baud Ø: r: 0.01s; w: 4.43s; v: 2.35s
+1000000 baud Ø: r: 0.01s; w: 4.44s; v: 2.40s
+2000000 baud Ø: r: 0.00s; w: 4.40s; v: 2.37s
+
+CONCLUSION:
+Uploading at baud rates greater than the standard 115.2 kbaud is a bit faster, but speed does not behave proportional to frequency.
+e.g. uploading at with 250 kbaud, which is more than two times the standard baud rate, saves 2 seconds only. This equals approximately -18%.
+Up to baud rates of 500000 the total duration decreases a bit, but increasing it further has no advantages and could even have the opposite effect.
+At high baud rates the time required to program the flash cells outweighs that spent for communication.
+Furthermore non-standard in especially high baud rates,
+On some platforms the user is forced to adjust settings manually, install special tools to setup custom baud rates
+and can come into conflicts with unsupported hardware like serial ports or converters supporting a maximum speed of 115200 Baud.
+Consequently non-standard baud rates should be used for testing purposes only. For production it is strongly recommanded
+to use one of the more reliable standard baud rates (300, 1200, 2400, 4800, 9600, 19200, 38400, 57600, 115200).
+One of the benefits of programming at baud rates of 250 kbaud (linux-non-standard) and 500 kbaud (linux-standard) is the very small difference between the desired and the real baud rate.
+Subsequently the question arises whether a baud rate being as exactly as possible or a lower speed has more influence on sufficient reliability.
+However uploading would be really fast, but will then still be enough time left to to drink a coffee?
+
