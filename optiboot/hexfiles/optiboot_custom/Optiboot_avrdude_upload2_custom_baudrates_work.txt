@@ -2563,4 +2563,4 @@ avrdude: safemode: Fuses OK (E:00, H:00, L:00)
 
 avrdude done.  Thank you.
 
-In my tests 666666 baud was the absolute maximum possible with MAX3232, but it's strongly not recommanded to use such high baud rates for productive designs!!!
+In my tests 666666 baud was the absolute maximum possible with MAX3232, but it's strongly not recommended to use such high baud rates for productive designs!!!
