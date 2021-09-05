@@ -1,5 +1,5 @@
 # xTiny
-export PACKS=/Downloads/Atmel.ATtiny_DFP.1.3.229
+#export PACKS=/Downloads/Atmel.ATtiny_DFP.1.3.229
 
 make -f Makefile.mega0 version
 
@@ -23,7 +23,7 @@ make -f Makefile.mega0 curiosity1607
 make -f Makefile.mega0 xplained416
 
 # Mega0
-export PACKS=/Downloads/Atmel.ATmega_DFP.1.3.300
+#export PACKS=/Downloads/Atmel.ATmega_DFP.1.3.300
 
 make -f Makefile.mega0 version
 
