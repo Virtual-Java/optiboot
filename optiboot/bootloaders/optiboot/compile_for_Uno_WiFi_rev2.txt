@@ -1,0 +1,565 @@
+make -f Makefile.mega0 UARTTX=C4 LED=D6 atmega4809
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at ../../../../../../Atmel.ATmega_DFP.1.7.374.atpack_FILES
+make -f  Makefile.mega0 optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot“ wird betreten
+Using Compiler at: /media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot/avr-gcc
+and Chip-defining PACKS at ../../../../../../Atmel.ATmega_DFP.1.7.374.atpack_FILES
+avr-gcc -g -Wall -Os -fno-split-wide-types -mrelax    -DLED_START_FLASHES=3  -DLED=D6   -DUARTTX=C4 -DBAUD_RATE=115200        -Wl,-section-start=.text=0 -Wl,--section-start=.application=0x200 -Wl,--section-start=.version=0x1fe -Wl,--relax -nostartfiles -nostdlib -I ../../../../../../Atmel.ATmega_DFP.1.7.374.atpack_FILES/include/ -B ../../../../../../Atmel.ATmega_DFP.1.7.374.atpack_FILES/gcc/dev/atmega4809 -mmcu=atmega4809 -o optiboot_atmega4809.elf optiboot_x.c
+Bootloader size with skeleton App
+   text	   data	    bss	    dec	    hex	filename
+    504	      9	      0	    513	    201	optiboot_atmega4809.elf
+avr-objdump -S  optiboot_atmega4809.elf > optiboot_atmega4809.lst
+avr-objcopy -j .text -j .data -j .version --set-section-flags .version=alloc,load -O ihex optiboot_atmega4809.elf optiboot_atmega4809.hex
+Bare Bootloader size
+avr-size optiboot_atmega4809.hex
+   text	   data	    bss	    dec	    hex	filename
+      0	    466	      0	    466	    1d2	optiboot_atmega4809.hex
+make[1]: Verzeichnis „/media/daten/Jonathan/Freizeit/Einplatinen_Microcontroller_Computer/Arduino/Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/bootloaders/optiboot“ wird verlassen
+
+
+2.) Rename the created files:
+for most linux distros like Arch: rename optiboot_atmega4809 optiboot_atmega4809_UnoWiFi2 optiboot_atmega4809.*
+for Ubuntu derivates like Mint: rename 's/optiboot_atmega4809/optiboot_atmega4809_UnoWiFi2/;' optiboot_atmega4809.*
+
+3.) create custom hexfile directory: mkdir ../../hexfiles/mega0_custom
+4.) move UnoWiFi2 files to hexfiles directory: mv optiboot_atmega4809_UnoWiFi2.* ../../hexfiles/mega0_custom/
+5.) test image by uploading it to Arduino Uno WiFi Rev2:
+
+Arduino IDE burn original mEDBG bootloader: ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse8:w:0x02:m -Uflash:w:~/.arduino15/packages/arduino/hardware/megaavr/1.8.7/bootloaders/atmega4809_uart_bl.hex:i
+
+Arduino IDE burn custom Optiboot bootloader: ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -Ufuse0:w:0x00:m -Ufuse1:w:0x48:m -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse6:w:0x07:m -Ufuse7:w:0x00:m -Ufuse8:w:0x02:m -Ufuse9:w:0xC5:m -Uflash:w: :i
+
+-Ufuse0:w:0x00:m    Watchdog timer window and period mode are disabled
+-Ufuse1:w:0x48:m    BODLEVEL2 2.6V; SampleFreq 1kHz; Sampled in Active and Idle Mode only
+-Ufuse2:w:0x01:m    Oscillator calibration at runtime is possible; internal oscillator running at 16MHz
+-Ufuse3DONTWRITE    RESERVED
+-Ufuse4DONTWRITE    RESERVED
+-Ufuse5:w:0xC9:m    no CRC Source; RESET pin; keep EEPROM during chip erase
+-Ufuse6:w:0x07:m    64 ms startup time after power on before code execution
+-Ufuse7:w:0x00:m    append  is at flashend otherwise size of bootsection + appsection (rest unused)
+-Ufuse8:w:0x02:m    bootend is 512 Bytes (256 words) from flashstart
+-Ufuse9:w:0xC5:m    device is open, reading all memories is possible
+ERROR: "fuse9" memory type not defined for part "ATmega4809" WHY???
+
+
+
+BURNING Optibootloader to Arduino Uno WiFi Rev2 AtMega4809 via onboard UPDI-Programmer:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/mega0_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -p atmega4809 -c xplainedmini_updi -P usb -U fuse0:w:0x00:m -U fuse1:w:0x48:m -U fuse2:w:0x01:m -U fuse5:w:0xC9:m -U fuse6:w:0x07:m -U fuse7:w:0x00:m -U fuse8:w:0x02:m -U fuse9:w:0xC5:m -U flash:w:optiboot_atmega4809_UnoWiFi2.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : usb
+         Using Programmer              : xplainedmini_updi
+avrdude: usbdev_open(): Found mEDBG CMSIS-DAP, serno: FFFFFFFFFFFFFFFFFFFF
+avrdude: usbdev_open(): WARNING: failed to set configuration 1: Device or resource busy
+avrdude: max packet size expected 512, but found 64 due to EP 0x81's wMaxPacketSize
+avrdude: Found CMSIS-DAP compliant device, using EDBG protocol
+         AVR Part                      : ATmega4809
+         Chip Erase delay              : 0 us
+         PAGEL                         : P00
+         BS2                           : P00
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 0
+         StabDelay                     : 0
+         CmdexeDelay                   : 0
+         SyncLoops                     : 0
+         ByteDelay                     : 0
+         PollIndex                     : 0
+         PollValue                     : 0x00
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+           prodsig        0     0     0    0 no         61   61      0     0     0 0x00 0x00
+           fuses          0     0     0    0 no          9    0      0     0     0 0x00 0x00
+           fuse0          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse1          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse2          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse4          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse5          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse6          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse7          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse8          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           lock           0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           data           0     0     0    0 no          0    0      0     0     0 0x00 0x00
+           usersig        0     0     0    0 no         64   64      0     0     0 0x00 0x00
+           flash          0     0     0    0 no      49152  128      0     0     0 0x00 0x00
+           eeprom         0     0     0    0 no        256   64      0     0     0 0x00 0x00
+
+         Programmer Type : JTAGICE3_UPDI
+         Description     : Atmel AVR XplainedMini in UPDI mode
+         ICE hardware version: 0
+         ICE firmware version: 1.19 (rel. 57)
+         Serial number   : FFFFFFFFFFFFFFFFFFFF
+         Vtarget         : 5.00 V
+         JTAG clock megaAVR/program: 0 kHz
+         JTAG clock megaAVR/debug:   0 kHz
+         JTAG clock Xmega: 0 kHz
+         PDI clock Xmega : 0 kHz
+
+avrdude: Partial Family_ID returned: "mega"
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.04s
+
+avrdude: Device signature = 0x1e9651 (probably m4809)
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "0x00"
+avrdude: writing fuse0 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse0 written
+avrdude: verifying fuse0 memory against 0x00:
+avrdude: load data fuse0 data from input file 0x00:
+avrdude: input file 0x00 contains 1 bytes
+avrdude: reading on-chip fuse0 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse0 verified
+avrdude: reading input file "0x48"
+avrdude: writing fuse1 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse1 written
+avrdude: verifying fuse1 memory against 0x48:
+avrdude: load data fuse1 data from input file 0x48:
+avrdude: input file 0x48 contains 1 bytes
+avrdude: reading on-chip fuse1 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse1 verified
+avrdude: reading input file "0x01"
+avrdude: writing fuse2 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse2 written
+avrdude: verifying fuse2 memory against 0x01:
+avrdude: load data fuse2 data from input file 0x01:
+avrdude: input file 0x01 contains 1 bytes
+avrdude: reading on-chip fuse2 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse2 verified
+avrdude: reading input file "0xC9"
+avrdude: writing fuse5 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse5 written
+avrdude: verifying fuse5 memory against 0xC9:
+avrdude: load data fuse5 data from input file 0xC9:
+avrdude: input file 0xC9 contains 1 bytes
+avrdude: reading on-chip fuse5 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: WARNING: invalid value for unused bits in fuse "fuse5", should be set to 1 according to datasheet
+This behaviour is deprecated and will result in an error in future version
+You probably want to use 0xcd instead of 0xc9 (double check with your datasheet first).
+avrdude: 1 bytes of fuse5 verified
+avrdude: reading input file "0x07"
+avrdude: writing fuse6 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse6 written
+avrdude: verifying fuse6 memory against 0x07:
+avrdude: load data fuse6 data from input file 0x07:
+avrdude: input file 0x07 contains 1 bytes
+avrdude: reading on-chip fuse6 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse6 verified
+avrdude: reading input file "0x00"
+avrdude: writing fuse7 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse7 written
+avrdude: verifying fuse7 memory against 0x00:
+avrdude: load data fuse7 data from input file 0x00:
+avrdude: input file 0x00 contains 1 bytes
+avrdude: reading on-chip fuse7 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse7 verified
+avrdude: reading input file "0x02"
+avrdude: writing fuse8 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse8 written
+avrdude: verifying fuse8 memory against 0x02:
+avrdude: load data fuse8 data from input file 0x02:
+avrdude: input file 0x02 contains 1 bytes
+avrdude: reading on-chip fuse8 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse8 verified
+"fuse9" memory type not defined for part "ATmega4809"
+
+avrdude: safemode: Fuses OK (E:FF, H:FF, L:FF)
+
+avrdude done.  Thank you.
+
+Second try (correct?, works?):
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/mega0_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -patmega4809 -cxplainedmini_updi -Pusb -Ufuse0:w:0x00:m -Ufuse1:w:0x48:m -Ufuse2:w:0x01:m -Ufuse5:w:0xC9:m -Ufuse6:w:0x07:m -Ufuse7:w:0x00:m -Ufuse8:w:0x02:m -Uflash:w:optiboot_atmega4809_UnoWiFi2.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : usb
+         Using Programmer              : xplainedmini_updi
+avrdude: usbdev_open(): Found mEDBG CMSIS-DAP, serno: FFFFFFFFFFFFFFFFFFFF
+avrdude: usbdev_open(): WARNING: failed to set configuration 1: Device or resource busy
+avrdude: max packet size expected 512, but found 64 due to EP 0x81's wMaxPacketSize
+avrdude: Found CMSIS-DAP compliant device, using EDBG protocol
+         AVR Part                      : ATmega4809
+         Chip Erase delay              : 0 us
+         PAGEL                         : P00
+         BS2                           : P00
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 0
+         StabDelay                     : 0
+         CmdexeDelay                   : 0
+         SyncLoops                     : 0
+         ByteDelay                     : 0
+         PollIndex                     : 0
+         PollValue                     : 0x00
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+           prodsig        0     0     0    0 no         61   61      0     0     0 0x00 0x00
+           fuses          0     0     0    0 no          9    0      0     0     0 0x00 0x00
+           fuse0          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse1          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse2          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse4          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse5          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse6          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse7          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse8          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           lock           0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           data           0     0     0    0 no          0    0      0     0     0 0x00 0x00
+           usersig        0     0     0    0 no         64   64      0     0     0 0x00 0x00
+           flash          0     0     0    0 no      49152  128      0     0     0 0x00 0x00
+           eeprom         0     0     0    0 no        256   64      0     0     0 0x00 0x00
+
+         Programmer Type : JTAGICE3_UPDI
+         Description     : Atmel AVR XplainedMini in UPDI mode
+         ICE hardware version: 0
+         ICE firmware version: 1.19 (rel. 57)
+         Serial number   : FFFFFFFFFFFFFFFFFFFF
+         Vtarget         : 5.00 V
+         JTAG clock megaAVR/program: 0 kHz
+         JTAG clock megaAVR/debug:   0 kHz
+         JTAG clock Xmega: 0 kHz
+         PDI clock Xmega : 0 kHz
+
+avrdude: Partial Family_ID returned: "mega"
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.10s
+
+avrdude: Device signature = 0x1e9651 (probably m4809)
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "0x00"
+avrdude: writing fuse0 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse0 written
+avrdude: verifying fuse0 memory against 0x00:
+avrdude: load data fuse0 data from input file 0x00:
+avrdude: input file 0x00 contains 1 bytes
+avrdude: reading on-chip fuse0 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse0 verified
+avrdude: reading input file "0x48"
+avrdude: writing fuse1 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse1 written
+avrdude: verifying fuse1 memory against 0x48:
+avrdude: load data fuse1 data from input file 0x48:
+avrdude: input file 0x48 contains 1 bytes
+avrdude: reading on-chip fuse1 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse1 verified
+avrdude: reading input file "0x01"
+avrdude: writing fuse2 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse2 written
+avrdude: verifying fuse2 memory against 0x01:
+avrdude: load data fuse2 data from input file 0x01:
+avrdude: input file 0x01 contains 1 bytes
+avrdude: reading on-chip fuse2 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse2 verified
+avrdude: reading input file "0xC9"
+avrdude: writing fuse5 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse5 written
+avrdude: verifying fuse5 memory against 0xC9:
+avrdude: load data fuse5 data from input file 0xC9:
+avrdude: input file 0xC9 contains 1 bytes
+avrdude: reading on-chip fuse5 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: WARNING: invalid value for unused bits in fuse "fuse5", should be set to 1 according to datasheet
+This behaviour is deprecated and will result in an error in future version
+You probably want to use 0xcd instead of 0xc9 (double check with your datasheet first).
+avrdude: 1 bytes of fuse5 verified
+avrdude: reading input file "0x07"
+avrdude: writing fuse6 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse6 written
+avrdude: verifying fuse6 memory against 0x07:
+avrdude: load data fuse6 data from input file 0x07:
+avrdude: input file 0x07 contains 1 bytes
+avrdude: reading on-chip fuse6 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse6 verified
+avrdude: reading input file "0x00"
+avrdude: writing fuse7 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse7 written
+avrdude: verifying fuse7 memory against 0x00:
+avrdude: load data fuse7 data from input file 0x00:
+avrdude: input file 0x00 contains 1 bytes
+avrdude: reading on-chip fuse7 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse7 verified
+avrdude: reading input file "0x02"
+avrdude: writing fuse8 (1 bytes):
+
+Writing | ################################################## | 100% 0.02s
+
+avrdude: 1 bytes of fuse8 written
+avrdude: verifying fuse8 memory against 0x02:
+avrdude: load data fuse8 data from input file 0x02:
+avrdude: input file 0x02 contains 1 bytes
+avrdude: reading on-chip fuse8 data:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: verifying ...
+avrdude: 1 bytes of fuse8 verified
+avrdude: reading input file "optiboot_atmega4809_UnoWiFi2.hex"
+avrdude: writing flash (512 bytes):
+
+Writing | ################################################## | 100% 0.16s
+
+avrdude: 512 bytes of flash written
+avrdude: verifying flash memory against optiboot_atmega4809_UnoWiFi2.hex:
+avrdude: load data flash data from input file optiboot_atmega4809_UnoWiFi2.hex:
+avrdude: input file optiboot_atmega4809_UnoWiFi2.hex contains 512 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.13s
+
+avrdude: verifying ...
+avrdude: 512 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:FF, H:FF, L:FF)
+
+avrdude done.  Thank you.
+
+READING BACK THE FUSES AND FLASH MEMORY:
+Optiboot/compile_optiboot_gcc5_4/original-github/optiboot/optiboot/hexfiles/mega0_custom$ ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/avrdude -C ~/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf -v -p atmega4809 -c xplainedmini_updi -P usb -D -U fuse0:r:fuse0:b -U fuse1:r:fuse1:b -U fuse2:r:fuse2:b -U fuse5:r:fuse5:b -U fuse6:r:fuse6:b -U fuse7:r:fuse7:b -U fuse8:r:fuse8:b -U flash:r:optiboot_atmega4809_UnoWiFi2_dump.hex:i
+
+avrdude: Version 6.3-20190619
+         Copyright (c) 2000-2005 Brian Dean, http://www.bdmicro.com/
+         Copyright (c) 2007-2014 Joerg Wunsch
+
+         System wide configuration file is "/home/jonathan/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/etc/avrdude.conf"
+         User configuration file is "/home/jonathan/.avrduderc"
+         User configuration file does not exist or is not a regular file, skipping
+
+         Using Port                    : usb
+         Using Programmer              : xplainedmini_updi
+avrdude: usbdev_open(): Found mEDBG CMSIS-DAP, serno: FFFFFFFFFFFFFFFFFFFF
+avrdude: usbdev_open(): WARNING: failed to set configuration 1: Device or resource busy
+avrdude: max packet size expected 512, but found 64 due to EP 0x81's wMaxPacketSize
+avrdude: Found CMSIS-DAP compliant device, using EDBG protocol
+         AVR Part                      : ATmega4809
+         Chip Erase delay              : 0 us
+         PAGEL                         : P00
+         BS2                           : P00
+         RESET disposition             : dedicated
+         RETRY pulse                   : SCK
+         serial program mode           : yes
+         parallel program mode         : yes
+         Timeout                       : 0
+         StabDelay                     : 0
+         CmdexeDelay                   : 0
+         SyncLoops                     : 0
+         ByteDelay                     : 0
+         PollIndex                     : 0
+         PollValue                     : 0x00
+         Memory Detail                 :
+
+                                  Block Poll               Page                       Polled
+           Memory Type Mode Delay Size  Indx Paged  Size   Size #Pages MinW  MaxW   ReadBack
+           ----------- ---- ----- ----- ---- ------ ------ ---- ------ ----- ----- ---------
+           signature      0     0     0    0 no          3    0      0     0     0 0x00 0x00
+           prodsig        0     0     0    0 no         61   61      0     0     0 0x00 0x00
+           fuses          0     0     0    0 no          9    0      0     0     0 0x00 0x00
+           fuse0          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse1          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse2          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse4          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse5          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse6          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse7          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           fuse8          0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           lock           0     0     0    0 no          1    0      0     0     0 0x00 0x00
+           data           0     0     0    0 no          0    0      0     0     0 0x00 0x00
+           usersig        0     0     0    0 no         64   64      0     0     0 0x00 0x00
+           flash          0     0     0    0 no      49152  128      0     0     0 0x00 0x00
+           eeprom         0     0     0    0 no        256   64      0     0     0 0x00 0x00
+
+         Programmer Type : JTAGICE3_UPDI
+         Description     : Atmel AVR XplainedMini in UPDI mode
+         ICE hardware version: 0
+         ICE firmware version: 1.19 (rel. 57)
+         Serial number   : FFFFFFFFFFFFFFFFFFFF
+         Vtarget         : 5.00 V
+         JTAG clock megaAVR/program: 0 kHz
+         JTAG clock megaAVR/debug:   0 kHz
+         JTAG clock Xmega: 0 kHz
+         PDI clock Xmega : 0 kHz
+
+avrdude: Partial Family_ID returned: "mega"
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.10s
+
+avrdude: Device signature = 0x1e9651 (probably m4809)
+avrdude: reading fuse0 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse0"
+avrdude: reading fuse1 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse1"
+avrdude: reading fuse2 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse2"
+avrdude: reading fuse5 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse5"
+avrdude: reading fuse6 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse6"
+avrdude: reading fuse7 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse7"
+avrdude: reading fuse8 memory:
+
+Reading | ################################################## | 100% 0.02s
+
+avrdude: writing output file "fuse8"
+avrdude: reading flash memory:
+
+Reading | ################################################## | 100% 12.67s
+
+avrdude: writing output file "optiboot_atmega4809_UnoWiFi2_dump.hex"
+
+avrdude: safemode: Fuses OK (E:FF, H:FF, L:FF)
+
+avrdude done.  Thank you.
+
+
+OUTPUT Fuses to screen:
+cat fuse*
+0b0
+0b1001000
+0b1
+0b11001101
+0b111
+0b0
+0b10
+
+BURN HoodLoader2 to Arduino Uno WiFi Rev2 USB-MCU (AtMega32u4) via DFU-Programmer (see Archlinux Arduino/Uno-Wifi-directory):
+

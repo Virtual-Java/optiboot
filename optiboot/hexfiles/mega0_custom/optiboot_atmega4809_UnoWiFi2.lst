@@ -1,5 +1,5 @@
 
-optiboot_atmega809.elf:     Dateiformat elf32-avr
+optiboot_atmega4809.elf:     Dateiformat elf32-avr
 
 
 Disassembly of section .text:
@@ -30,9 +30,9 @@ void pre_main (void) {
   20:	b1 d0       	rcall	.+354    	; 0x184 <watchdogConfig>
   22:	ee c0       	rjmp	.+476    	; 0x200 <app>
   24:	a8 95       	wdr
-  26:	04 9a       	sbi	0x00, 4	; 0
-  28:	0c 9a       	sbi	0x01, 4	; 1
-  2a:	81 e0       	ldi	r24, 0x01	; 1
+  26:	44 9a       	sbi	0x08, 4	; 8
+  28:	4c 9a       	sbi	0x09, 4	; 9
+  2a:	84 e0       	ldi	r24, 0x04	; 4
   2c:	80 93 e2 05 	sts	0x05E2, r24	; 0x8005e2 <__TEXT_REGION_LENGTH__+0x7005e2>
   30:	80 91 82 12 	lds	r24, 0x1282	; 0x801282 <__TEXT_REGION_LENGTH__+0x701282>
   34:	83 70       	andi	r24, 0x03	; 3
@@ -43,15 +43,15 @@ void pre_main (void) {
   3e:	02 c0       	rjmp	.+4      	; 0x44 <__SREG__+0x5>
   40:	83 e7       	ldi	r24, 0x73	; 115
   42:	90 e0       	ldi	r25, 0x00	; 0
-  44:	80 93 08 08 	sts	0x0808, r24	; 0x800808 <__TEXT_REGION_LENGTH__+0x700808>
-  48:	90 93 09 08 	sts	0x0809, r25	; 0x800809 <__TEXT_REGION_LENGTH__+0x700809>
+  44:	80 93 28 08 	sts	0x0828, r24	; 0x800828 <__TEXT_REGION_LENGTH__+0x700828>
+  48:	90 93 29 08 	sts	0x0829, r25	; 0x800829 <__TEXT_REGION_LENGTH__+0x700829>
   4c:	81 e0       	ldi	r24, 0x01	; 1
-  4e:	80 93 0b 08 	sts	0x080B, r24	; 0x80080b <__TEXT_REGION_LENGTH__+0x70080b>
+  4e:	80 93 2b 08 	sts	0x082B, r24	; 0x80082b <__TEXT_REGION_LENGTH__+0x70082b>
   52:	83 e0       	ldi	r24, 0x03	; 3
-  54:	80 93 07 08 	sts	0x0807, r24	; 0x800807 <__TEXT_REGION_LENGTH__+0x700807>
-  58:	10 92 05 08 	sts	0x0805, r1	; 0x800805 <__TEXT_REGION_LENGTH__+0x700805>
+  54:	80 93 27 08 	sts	0x0827, r24	; 0x800827 <__TEXT_REGION_LENGTH__+0x700827>
+  58:	10 92 25 08 	sts	0x0825, r1	; 0x800825 <__TEXT_REGION_LENGTH__+0x700825>
   5c:	80 ec       	ldi	r24, 0xC0	; 192
-  5e:	80 93 06 08 	sts	0x0806, r24	; 0x800806 <__TEXT_REGION_LENGTH__+0x700806>
+  5e:	80 93 26 08 	sts	0x0826, r24	; 0x800826 <__TEXT_REGION_LENGTH__+0x700826>
   62:	88 e0       	ldi	r24, 0x08	; 8
   64:	8f d0       	rcall	.+286    	; 0x184 <watchdogConfig>
   66:	66 9a       	sbi	0x0c, 6	; 12
@@ -62,7 +62,7 @@ void pre_main (void) {
   70:	2e ec       	ldi	r18, 0xCE	; 206
   72:	36 e5       	ldi	r19, 0x56	; 86
   74:	a8 95       	wdr
-  76:	90 91 04 08 	lds	r25, 0x0804	; 0x800804 <__TEXT_REGION_LENGTH__+0x700804>
+  76:	90 91 24 08 	lds	r25, 0x0824	; 0x800824 <__TEXT_REGION_LENGTH__+0x700824>
   7a:	97 fd       	sbrc	r25, 7
   7c:	05 c0       	rjmp	.+10     	; 0x88 <__SREG__+0x49>
   7e:	21 50       	subi	r18, 0x01	; 1
@@ -180,12 +180,12 @@ inline void rs485_txoff() {}
 void putch (char ch) {
   rs485_txon();  // turn on and leave on till we're done xmitting.
   while (0 == (MYUART.STATUS & USART_DREIF_bm))
- 15e:	90 91 04 08 	lds	r25, 0x0804	; 0x800804 <__TEXT_REGION_LENGTH__+0x700804>
+ 15e:	90 91 24 08 	lds	r25, 0x0824	; 0x800824 <__TEXT_REGION_LENGTH__+0x700824>
  162:	95 ff       	sbrs	r25, 5
  164:	fc cf       	rjmp	.-8      	; 0x15e <putch>
     ;
   MYUART.TXDATAL = ch;
- 166:	80 93 02 08 	sts	0x0802, r24	; 0x800802 <__TEXT_REGION_LENGTH__+0x700802>
+ 166:	80 93 22 08 	sts	0x0822, r24	; 0x800822 <__TEXT_REGION_LENGTH__+0x700822>
  16a:	08 95       	ret
 
 0000016c <getch>:
@@ -195,14 +195,14 @@ void putch (char ch) {
 uint8_t getch (void) {
   uint8_t ch, flags;
   while (!(MYUART.STATUS & USART_RXCIF_bm))
- 16c:	80 91 04 08 	lds	r24, 0x0804	; 0x800804 <__TEXT_REGION_LENGTH__+0x700804>
+ 16c:	80 91 24 08 	lds	r24, 0x0824	; 0x800824 <__TEXT_REGION_LENGTH__+0x700824>
  170:	87 ff       	sbrs	r24, 7
  172:	fc cf       	rjmp	.-8      	; 0x16c <getch>
     ;
   flags = MYUART.RXDATAH;
- 174:	90 91 01 08 	lds	r25, 0x0801	; 0x800801 <__TEXT_REGION_LENGTH__+0x700801>
+ 174:	90 91 21 08 	lds	r25, 0x0821	; 0x800821 <__TEXT_REGION_LENGTH__+0x700821>
   ch = MYUART.RXDATAL;
- 178:	80 91 00 08 	lds	r24, 0x0800	; 0x800800 <__TEXT_REGION_LENGTH__+0x700800>
+ 178:	80 91 20 08 	lds	r24, 0x0820	; 0x800820 <__TEXT_REGION_LENGTH__+0x700820>
   if ((flags & USART_FERR_bm) == 0)
  17c:	92 fd       	sbrc	r25, 2
  17e:	01 c0       	rjmp	.+2      	; 0x182 <getch+0x16>
