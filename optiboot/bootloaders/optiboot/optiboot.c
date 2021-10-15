@@ -767,34 +767,72 @@ int main(void) {
 
 
 #if (SOFT_UART == 0)
-#if defined(__AVR_ATmega8__) || defined (__AVR_ATmega8515__) || \
-  defined (__AVR_ATmega8535__) || defined (__AVR_ATmega16__) || \
-  defined (__AVR_ATmega32__)
-#if (SINGLESPEED == 0)
-  UCSRA = _BV(U2X); //Double speed mode USART
-#endif //singlespeed
-  UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
-  UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);  // config USART; 8N1
-  UBRRL = (uint8_t)BAUD_SETTING;
-#else // mega8/etc
-#ifdef LIN_UART
-  //DDRB|=3;
-  LINCR = (1 << LSWRES);
-  //LINBRRL = (((F_CPU * 10L / 32L / BAUD_RATE) + 5L) / 10L) - 1;
-  LINBRRL=(uint8_t)BAUD_SETTING;
-  LINBTR = (1 << LDISR) | (8 << LBT0); 
-  LINCR = _BV(LENA) | _BV(LCMD2) | _BV(LCMD1) | _BV(LCMD0);
-  LINDAT=0;
-#else
-#if (SINGLESPEED == 0)
-  UART_SRA = _BV(U2X0); //Double speed mode USART0
-#endif
-  UART_SRB = _BV(RXEN0) | _BV(TXEN0);
-  UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
-  UART_SRL = (uint8_t)BAUD_SETTING;
-#endif // LIN_UART
-#endif // mega8/etc
-#endif // soft_uart
+  #if (SYNC_UART == 0) // Asynchronous UART
+    #if defined(__AVR_ATmega8__) || defined (__AVR_ATmega8515__) || \
+        defined (__AVR_ATmega8535__) || defined (__AVR_ATmega16__) || \
+        defined (__AVR_ATmega32__)
+      #if (SINGLESPEED == 0)
+        UCSRA = _BV(U2X); //Double speed mode USART
+      #endif //singlespeed
+      UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
+      UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);  // config USART; 8N1
+      UBRRL = (uint8_t)BAUD_SETTING;
+    #else // mega8/etc
+      #ifdef LIN_UART
+        //DDRB|=3;
+        LINCR = (1 << LSWRES);
+        //LINBRRL = (((F_CPU * 10L / 32L / BAUD_RATE) + 5L) / 10L) - 1;
+        LINBRRL=(uint8_t)BAUD_SETTING;
+        LINBTR = (1 << LDISR) | (8 << LBT0); 
+        LINCR = _BV(LENA) | _BV(LCMD2) | _BV(LCMD1) | _BV(LCMD0);
+        LINDAT=0;
+      #else // default uart
+        #if (SINGLESPEED == 0)
+          UART_SRA = _BV(U2X0); //Double speed mode USART0
+        #endif
+        UART_SRB = _BV(RXEN0) | _BV(TXEN0);
+        UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
+        UART_SRL = (uint8_t)BAUD_SETTING;
+      #endif // LIN_UART
+    #endif // mega8/etc
+
+  #else // Synchronous UART
+    #if defined(__AVR_ATmega8__) || defined (__AVR_ATmega8515__) || \
+        defined (__AVR_ATmega8535__) || defined (__AVR_ATmega16__) || \
+        defined (__AVR_ATmega32__)
+      #if (MASTERMODE == 1)
+        UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
+      #endif
+      //UCSRA &= ~_BV(U2X); // Disable double speed mode (should already be zero
+      UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
+      UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0) | _BV(UMSEL) // config USART; 8N1; synchronous mode
+      #if (UART_CLOCK_POLARITY == 1)
+        | _BV(UCPOL); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
+      #else
+      ; // (UCPOL unset) TXDn: Rising XCKn Edge; RXDn: Falling XCKn Edge
+      #endif
+      UBRRL = (uint8_t)BAUD_SETTING;
+    #else // mega8/etc
+      #ifdef LIN_UART
+        #error device does not support synchronous uart mode SYNC_UART
+      #else // default uart
+        #if (MASTERMODE == 1)
+          UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
+        #endif
+        //UART_SRA &= ~_BV(U2X0); // Disable double speed mode (should already be zero)
+        UART_SRB = _BV(RXEN0) | _BV(TXEN0);
+        UART_SRC = _BV(UCSZ00) | _BV(UCSZ01) | _BV(UMSEL00) // config USART; 8N1; synchronous mode
+        #if (UART_CLOCK_POLARITY == 1)
+          | _BV(UCPOL0); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
+        #else
+        ; // (UCPOL0 unset) TXDn: Rising XCKn Edge; RXDn: Falling XCKn Edge
+        #endif
+        UART_SRL = (uint8_t)BAUD_SETTING;
+      #endif // LIN_UART
+    #endif // mega8/etc
+
+  #endif // SYNC_UART
+#endif // SOFT_UART
 
 #ifdef RS485
   RS485_DDR |= _BV(RS485_BIT);
