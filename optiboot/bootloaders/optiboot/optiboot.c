@@ -401,39 +401,74 @@ typedef union {
 #endif
 
 #if (SOFT_UART == 0)
-#if SINGLESPEED
-/* Single speed option */
-#define BAUD_SETTING (( (F_CPU + BAUD_RATE * 8L) / ((BAUD_RATE * 16L))) - 1 )
-#define BAUD_ACTUAL (F_CPU/(16 * ((BAUD_SETTING)+1)))
-#else
-/* Normal U2X usage */
-#define BAUD_SETTING (( (F_CPU + BAUD_RATE * 4L) / ((BAUD_RATE * 8L))) - 1 )
-#define BAUD_ACTUAL (F_CPU/(8 * ((BAUD_SETTING)+1)))
-#endif
-#if BAUD_ACTUAL <= BAUD_RATE
-#define BAUD_ERROR (( 100*(BAUD_RATE - BAUD_ACTUAL) ) / BAUD_RATE)
-#if BAUD_ERROR >= 5
-#error BAUD_RATE off by greater than -5%
-#elif BAUD_ERROR >= 2  && !defined(PRODUCTION)
-#warning BAUD_RATE off by greater than -2%
-#endif
-#else
-#define BAUD_ERROR (( 100*(BAUD_ACTUAL - BAUD_RATE) ) / BAUD_RATE)
-#if BAUD_ERROR >= 5
-#error BAUD_RATE off by greater than 5%
-#elif BAUD_ERROR >= 2  && !defined(PRODUCTION)
-#warning BAUD_RATE off by greater than 2%
-#endif
-#endif
+  #if (SYNC_UART == 0) // Asynchronous UART
+    #if SINGLESPEED
+      /* Single speed option */
+      #define BAUD_SETTING (( (F_CPU + BAUD_RATE * 8L) / ((BAUD_RATE * 16L))) - 1 )
+      #define BAUD_ACTUAL (F_CPU/(16 * ((BAUD_SETTING)+1)))
+    #else
+      /* Default U2X usage (double speed) */
+      #define BAUD_SETTING (( (F_CPU + BAUD_RATE * 4L) / ((BAUD_RATE * 8L))) - 1 )
+      #define BAUD_ACTUAL (F_CPU/(8 * ((BAUD_SETTING)+1)))
+    #endif
 
-#if BAUD_SETTING > 250
-#error Unachievable baud rate (too slow) BAUD_RATE
-#endif // baud rate slow check
-#if (BAUD_SETTING - 1) < 3
-#if BAUD_ERROR != 0 // permit high bitrates (ie 1Mbps@16MHz) if error is zero
-#error Unachievable baud rate (too fast) BAUD_RATE
-#endif
-#endif // baud rate fast check
+    #if BAUD_ACTUAL <= BAUD_RATE
+      #define BAUD_ERROR (( 100*(BAUD_RATE - BAUD_ACTUAL) ) / BAUD_RATE)
+      #if BAUD_ERROR >= 5
+        #error BAUD_RATE off by greater than -5%
+      #elif BAUD_ERROR >= 2  && !defined(PRODUCTION)
+        #warning BAUD_RATE off by greater than -2%
+      #endif
+    #else
+      #define BAUD_ERROR (( 100*(BAUD_ACTUAL - BAUD_RATE) ) / BAUD_RATE)
+      #if BAUD_ERROR >= 5
+        #error BAUD_RATE off by greater than 5%
+      #elif BAUD_ERROR >= 2  && !defined(PRODUCTION)
+        #warning BAUD_RATE off by greater than 2%
+      #endif
+    #endif
+
+    #if (BAUD_SETTING - 1) < 3
+      #if BAUD_ERROR != 0 // permit high bitrates (ie 1Mbps@16MHz) if error is zero
+        #error Unachievable baud rate (too fast) BAUD_RATE
+      #endif
+    #endif // baud rate fast check
+
+  // Synchronous UART
+  #else // (SYNC_UART == 1)
+    #define BAUD_SETTING (( (F_CPU + BAUD_RATE * 1L) / ((BAUD_RATE * 2L))) - 1 )
+    #define BAUD_ACTUAL (F_CPU/(2 * ((BAUD_SETTING)+1)))
+    #if SINGLESPEED
+      #error SINGLESPEED is not available for SYNC_UART
+    #endif
+
+    #if MASTERMODE
+      #if (F_CPU / 2) <= BAUD_RATE
+        #error Unachievable uart clock rate (too fast) UART_CLOCK
+      #endif
+    #else // SLAVEMODE
+      #if (F_CPU / 4) <= BAUD_RATE
+        #error Unachievable uart clock rate (too fast) UART_CLOCK
+        #if (F_CPU / 8) <= BAUD_RATE
+          #warning Maybe unstable uart clock rate (very high) UART_CLOCK
+        #endif
+      #endif
+    #endif // MASTERMODE
+  #endif // SYNC_UART
+
+
+
+  /* baud rate slow checks */
+  #if BAUD_SETTING > 250
+    #error Unachievable baud rate (too slow) BAUD_RATE
+  #endif // baud rate slow check
+
+  #if (BAUD_SETTING - 1) < 3
+    #if BAUD_ERROR != 0 // permit high bitrates (ie 1Mbps@16MHz) if error is zero
+      #error Unachievable baud rate (too fast) BAUD_RATE
+    #endif
+  #endif // baud rate fast check
+
 #endif // SOFT_UART
 
 /* Watchdog settings */
@@ -765,7 +800,6 @@ int main(void) {
 #endif
 #endif
 
-
 #if (SOFT_UART == 0)
   #if (SYNC_UART == 0) // Asynchronous UART
     #if defined(__AVR_ATmega8__) || defined (__AVR_ATmega8515__) || \
@@ -777,12 +811,18 @@ int main(void) {
       UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
       UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);  // config USART; 8N1
       UBRRL = (uint8_t)BAUD_SETTING;
+      #if (ENABLE_LOW_BAUD == 1)
+        UBRRH = (uint8_t) (BAUD_SETTING >> 8);
+      #endif
     #else // mega8/etc
       #ifdef LIN_UART
         //DDRB|=3;
         LINCR = (1 << LSWRES);
         //LINBRRL = (((F_CPU * 10L / 32L / BAUD_RATE) + 5L) / 10L) - 1;
         LINBRRL=(uint8_t)BAUD_SETTING;
+        #if (ENABLE_LOW_BAUD == 1)
+          LINBRRH = (uint8_t) (BAUD_SETTING >> 8);
+        #endif
         LINBTR = (1 << LDISR) | (8 << LBT0); 
         LINCR = _BV(LENA) | _BV(LCMD2) | _BV(LCMD1) | _BV(LCMD0);
         LINDAT=0;
@@ -793,6 +833,9 @@ int main(void) {
         UART_SRB = _BV(RXEN0) | _BV(TXEN0);
         UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
         UART_SRL = (uint8_t)BAUD_SETTING;
+        #if (ENABLE_LOW_BAUD == 1)
+          UART_SRH = (uint8_t) (BAUD_SETTING >> 8);
+        #endif
       #endif // LIN_UART
     #endif // mega8/etc
 
@@ -804,6 +847,9 @@ int main(void) {
         UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
       #endif
       UBRRL = (uint8_t)BAUD_SETTING;
+      #if (ENABLE_LOW_BAUD == 1)
+        UBRRH = (uint8_t) (BAUD_SETTING >> 8);
+      #endif
       UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0) | _BV(UMSEL); // config USART; 8N1; synchronous mode
       #if (UART_CLOCK_POLARITY == 1)
         UCSRC |= _BV(UCPOL); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
@@ -820,6 +866,9 @@ int main(void) {
           UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
         #endif
         UART_SRL = (uint8_t)BAUD_SETTING;
+        #if (ENABLE_LOW_BAUD == 1)
+          UART_SRH = (uint8_t) (BAUD_SETTING >> 8);
+        #endif
         UART_SRC = _BV(UCSZ00) | _BV(UCSZ01) | _BV(UMSEL00) // config USART; 8N1; synchronous mode
         #if (UART_CLOCK_POLARITY == 1)
           | _BV(UCPOL0); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge

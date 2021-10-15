@@ -32,10 +32,14 @@ fcpu=${fcpu/U/}
 /*
  * Compute the divisor
  */
-#ifdef SINGLESPEED
-BAUD_SETTING=$(( ( ($fcpu + $bps * 8) / (($bps * 16))) - 1 ))
-#else
-BAUD_SETTING=$(( ( ($fcpu + $bps * 4) / (($bps * 8))) - 1 ))
+#if (SYNC_UART == 0) // Asynchronous UART
+  #ifdef SINGLESPEED
+  BAUD_SETTING=$(( ( ($fcpu + $bps * 8) / (($bps * 16))) - 1 ))
+  #else
+  BAUD_SETTING=$(( ( ($fcpu + $bps * 4) / (($bps * 8))) - 1 ))
+  #endif
+#else   // Synchronous UART
+  BAUD_SETTING=$(( ( ($fcpu + $bps * 1) / (($bps * 2))) - 1 ))
 #endif
 // echo baud setting = $BAUD_SETTING
 
@@ -44,11 +48,16 @@ BAUD_SETTING=$(( ( ($fcpu + $bps * 4) / (($bps * 8))) - 1 ))
  * And the error.  Since we're all integers, we have to calculate
  * the tenths part of the error separately.
  */
-#ifdef SINGLESPEED
-BAUD_ACTUAL=$(( ($fcpu/(16 * (($BAUD_SETTING)+1))) ))
-#else
-BAUD_ACTUAL=$(( ($fcpu/(8 * (($BAUD_SETTING)+1))) ))
+#if (SYNC_UART == 0) // Asynchronous UART
+  #ifdef SINGLESPEED
+  BAUD_ACTUAL=$(( ($fcpu/(16 * (($BAUD_SETTING)+1))) ))
+  #else
+  BAUD_ACTUAL=$(( ($fcpu/(8 * (($BAUD_SETTING)+1))) ))
+  #endif
+#else   // Synchronous UART
+  BAUD_ACTUAL=$(( ($fcpu/(2 * (($BAUD_SETTING)+1))) ))
 #endif
+
 BAUD_ERROR=$(( (( 100*($BAUD_ACTUAL - $bps) ) / $bps) ))
 ERR_TS=$(( ((( 1000*($BAUD_ACTUAL - $bps) ) / $bps) - $BAUD_ERROR * 10) ))
 ERR_TENTHS=$(( ERR_TS > 0 ? ERR_TS: -ERR_TS ))
