@@ -51,12 +51,14 @@
 # define UART_SRB UCSR0B
 # define UART_SRC UCSR0C
 # define UART_SRL UBRR0L
+# define UART_SRH UBRR0H
 # define UART_UDR UDR0
 #elif defined(UDR)
 # define UART_SRA UCSRA
 # define UART_SRB UCSRB
 # define UART_SRC UCSRC
 # define UART_SRL UBRRL
+# define UART_SRH UBRRH
 # define UART_UDR UDR
 #elif defined(LINDAT)
 # define LIN_UART 1
@@ -64,6 +66,7 @@
 # define UART_SRB UCSRB
 # define UART_SRC UCSRC
 # define UART_SRL UBRRL
+# define UART_SRH UBRRH
 # define UART_UDR LINDAT
 #else
 # error UART == 0, but no UART0 on device
@@ -76,6 +79,7 @@
 # define UART_SRB UCSR1B
 # define UART_SRC UCSR1C
 # define UART_SRL UBRR1L
+# define UART_SRH UBRR1H
 # define UART_UDR UDR1
 #elif UART == 2
 #if !defined(UDR2)
@@ -85,6 +89,7 @@
 # define UART_SRB UCSR2B
 # define UART_SRC UCSR2C
 # define UART_SRL UBRR2L
+# define UART_SRH UBRR2H
 # define UART_UDR UDR2
 #elif UART == 3
 #if !defined(UDR3)
@@ -94,6 +99,7 @@
 # define UART_SRB UCSR3B
 # define UART_SRC UCSR3C
 # define UART_SRL UBRR3L
+# define UART_SRH UBRR3H
 # define UART_UDR UDR3
 #endif
 #endif //end #if SOFT_UART==0
@@ -116,6 +122,22 @@
   #define WDCE          WDTOE
 #endif
 
+/* Default ports for sync UART */
+#if SYNC_UART
+  #if UART == 0
+    #define UART_XCK_DDR  DDRE
+    #define UART_XCK_BIT  2
+  #elif UART == 1
+    #define UART_XCK_DDR  DDRD
+    #define UART_XCK_BIT  5
+  #elif UART == 2
+    #define UART_XCK_DDR  DDRH
+    #define UART_XCK_BIT  2
+  #elif UART == 3
+    #define UART_XCK_DDR  DDRJ
+    #define UART_XCK_BIT  2
+  #endif
+#endif
 
 /*------------------------------------------------------------------------ */
 /* Sanguino support (and other 40pin DIP cpus) */
@@ -146,6 +168,12 @@
 #define UART_TX_BIT 1
 #define UART_RX_BIT 0
 #endif
+#endif
+
+/* Ports for sync UART */
+#if SYNC_UART
+  #define UART_XCK_DDR    DDRD
+  #define UART_XCK_BIT    4
 #endif
 
 #if    defined(__AVR_ATmega8535__)              \
@@ -191,6 +219,11 @@
 #endif
 #endif
 
+/* Ports for sync UART */
+#if SYNC_UART
+  #define UART_XCK_DDR    DDRB
+  #define UART_XCK_BIT    0
+#endif
 
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega324PB__)
@@ -292,6 +325,18 @@
 #endif
 #endif
 
+/* Ports for sync UART */
+#if SYNC_UART
+  #define UART_XCK_DDR    DDRE
+  #if UART == 0
+    #define UART_XCK_BIT  0
+  #elif UART == 1
+    #define UART_XCK_BIT  4
+  #elif UART == 2
+    #define UART_XCK_BIT  7
+  #endif
+#endif
+
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
 /*------------------------------------------------------------------------ */
@@ -353,7 +398,6 @@
 #endif
 #endif
 
-
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega169__)
 /*------------------------------------------------------------------------ */
@@ -408,6 +452,7 @@
 #define UART_RX_BIT 0
 #endif
 #endif
+
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2561__)
 /*------------------------------------------------------------------------ */
@@ -424,7 +469,6 @@
 #define UART_RX_BIT 0
 #endif
 #endif
-
 
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATmega169__)
@@ -582,6 +626,27 @@
 #endif
 #endif
 
+/* Ports for sync UART */
+#if SYNC_UART
+  #define UART_XCK_DDR  DDRD
+  #define UART_XCK_BIT  5
+#endif
+
+/*------------------------------------------------------------------------ */
+#if defined(__AVR_ATtiny441__) | defined(__AVR_ATtiny841__)
+/*------------------------------------------------------------------------ */
+
+/* Ports for sync UART */
+#if SYNC_UART
+  #if UART == 0
+    #define UART_XCK_DDR  DDRA
+    #define UART_XCK_BIT  3
+  #elif UART == 1
+    #define UART_XCK_DDR  DDRA
+    #define UART_XCK_BIT  6
+  #endif
+#endif
+#endif
 
 /*------------------------------------------------------------------------ */
 #if defined(__AVR_ATtiny841__)
@@ -784,6 +849,8 @@
 #define RXC0 RXC
 #define UCSZ00 UCSZ0
 #define UCSZ01 UCSZ1
+#define UMSEL00 UMSEL0
+#define UMSEL01 UMSEL1
 #define TXEN0 TXEN
 #define RXEN0 RXEN
 #define U2X0 U2X
@@ -792,9 +859,15 @@
 #if SOFT_UART
 #define UART_PORT   PORTA
 #define UART_PIN    PINA
-#define UART_DDR    DDRA
+#define UART_DDR    DDRA // Hardware UART is on a different port
 #define UART_TX_BIT 2
 #define UART_RX_BIT 3
+#endif
+
+/* Ports for sync UART */
+#if SYNC_UART
+  #define UART_XCK_DDR  DDRC
+  #define UART_XCK_BIT  0
 #endif
 #endif
 
