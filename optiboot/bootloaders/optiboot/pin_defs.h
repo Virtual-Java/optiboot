@@ -172,6 +172,8 @@
 
 /* Ports for sync UART */
 #if SYNC_UART
+  #undef UART_XCK_DDR
+  #undef UART_XCK_BIT
   #define UART_XCK_DDR    DDRD
   #define UART_XCK_BIT    4
 #endif
@@ -221,6 +223,8 @@
 
 /* Ports for sync UART */
 #if SYNC_UART
+  #undef UART_XCK_DDR
+  #undef UART_XCK_BIT
   #define UART_XCK_DDR    DDRB
   #define UART_XCK_BIT    0
 #endif
@@ -327,6 +331,8 @@
 
 /* Ports for sync UART */
 #if SYNC_UART
+  #undef UART_XCK_DDR
+  #undef UART_XCK_BIT
   #define UART_XCK_DDR    DDRE
   #if UART == 0
     #define UART_XCK_BIT  0
@@ -627,7 +633,9 @@
 #endif
 
 /* Ports for sync UART */
-#if SYNC_UART
+#if SYNC_UART 
+  #undef UART_XCK_DDR
+  #undef UART_XCK_BIT
   #define UART_XCK_DDR  DDRD
   #define UART_XCK_BIT  5
 #endif
@@ -865,7 +873,9 @@
 #endif
 
 /* Ports for sync UART */
-#if SYNC_UART
+#if SYNC_UART 
+  #undef UART_XCK_DDR
+  #undef UART_XCK_BIT
   #define UART_XCK_DDR  DDRC
   #define UART_XCK_BIT  0
 #endif
