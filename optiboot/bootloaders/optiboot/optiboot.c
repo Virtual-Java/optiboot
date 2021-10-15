@@ -459,15 +459,21 @@ typedef union {
 
 
   /* baud rate slow checks */
-  #if BAUD_SETTING > 250
+  #if (ENABLE_LOW_BAUD == -1) // select used size of baud register automatically
+    #if (BAUD_SETTING > 255)
+      #warning Very low baud rate BAUD_RATE; automatically retry with ENABLE_LOW_BAUD activated
+      #define ENABLE_LOW_BAUD  1 // automatic retry
+    #endif // baud rate low register check
+  #endif
+  #if (BAUD_SETTING > 4096)
     #error Unachievable baud rate (too slow) BAUD_RATE
+  #else
+    #if (ENABLE_LOW_BAUD == 0) // high baud rates only; save some memory
+      #if (BAUD_SETTING > 255)
+        #error Unachievable baud rate (too slow); maybe retry with ENABLE_LOW_BAUD=1
+      #endif // baud rate low register check
+    #endif // low baud disabled
   #endif // baud rate slow check
-
-  #if (BAUD_SETTING - 1) < 3
-    #if BAUD_ERROR != 0 // permit high bitrates (ie 1Mbps@16MHz) if error is zero
-      #error Unachievable baud rate (too fast) BAUD_RATE
-    #endif
-  #endif // baud rate fast check
 
 #endif // SOFT_UART
 
@@ -812,7 +818,7 @@ int main(void) {
       UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0);  // config USART; 8N1
       UBRRL = (uint8_t)BAUD_SETTING;
       #if (ENABLE_LOW_BAUD == 1)
-        UBRRH = (uint8_t) (BAUD_SETTING >> 8);
+        UBRRL = (uint8_t)BAUD_SETTING;
       #endif
     #else // mega8/etc
       #ifdef LIN_UART
@@ -821,7 +827,7 @@ int main(void) {
         //LINBRRL = (((F_CPU * 10L / 32L / BAUD_RATE) + 5L) / 10L) - 1;
         LINBRRL=(uint8_t)BAUD_SETTING;
         #if (ENABLE_LOW_BAUD == 1)
-          LINBRRH = (uint8_t) (BAUD_SETTING >> 8);
+          LINBRRL = (uint16_t)BAUD_SETTING;
         #endif
         LINBTR = (1 << LDISR) | (8 << LBT0); 
         LINCR = _BV(LENA) | _BV(LCMD2) | _BV(LCMD1) | _BV(LCMD0);
@@ -834,7 +840,7 @@ int main(void) {
         UART_SRC = _BV(UCSZ00) | _BV(UCSZ01);
         UART_SRL = (uint8_t)BAUD_SETTING;
         #if (ENABLE_LOW_BAUD == 1)
-          UART_SRH = (uint8_t) (BAUD_SETTING >> 8);
+          UART_SRL = (uint16_t)BAUD_SETTING;
         #endif
       #endif // LIN_UART
     #endif // mega8/etc
@@ -867,7 +873,9 @@ int main(void) {
         #endif
         UART_SRL = (uint8_t)BAUD_SETTING;
         #if (ENABLE_LOW_BAUD == 1)
-          UART_SRH = (uint8_t) (BAUD_SETTING >> 8);
+          UART_SRL = (uint16_t)BAUD_SETTING;
+          //UART_SRL = (uint8_t)BAUD_SETTING; // needs more memory
+          //UART_SRH = (uint8_t)(BAUD_SETTING >> 8); // needs high register to be defined
         #endif
         UART_SRC = _BV(UCSZ00) | _BV(UCSZ01) | _BV(UMSEL00) // config USART; 8N1; synchronous mode
         #if (UART_CLOCK_POLARITY == 1)

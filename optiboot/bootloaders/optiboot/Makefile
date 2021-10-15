@@ -268,7 +268,7 @@ dummy = FORCE
 endif
 endif
 
-HELPTEXT += "Option CLOCK_POLARITY=b      - set clock polarity for UART clock\n"
+HELPTEXT += "Option CLOCK_POLARITY=b      - set clock polarity of UART clock\n"
 ifdef CLOCK_POLARITY
 ifneq ($(CLOCK_POLARITY), 0)
 CLOCK_POLARITY_CMD = -DCLOCK_POLARITY=1
@@ -276,6 +276,16 @@ dummy = FORCE
 else
 CLOCK_POLARITY_CMD = -DCLOCK_POLARITY=0
 endif
+endif
+
+HELPTEXT += "Option ENABLE_LOW_BAUD=1     - enable low baudrates\n"
+ifdef ENABLE_LOW_BAUD
+ifneq ($(ENABLE_LOW_BAUD), 0)
+ENABLE_LOW_BAUD_CMD = -DENABLE_LOW_BAUD=1
+dummy = FORCE
+endif
+else
+ENABLE_LOW_BAUD_CMD = -DENABLE_LOW_BAUD=-1
 endif
 
 HELPTEXT += "Option NO_APP_SPM=1          - disallow application call of do_spm\n"
@@ -327,6 +337,7 @@ COMMON_OPTIONS += $(SUPPORT_EEPROM_CMD) $(LED_START_ON_CMD) $(APPSPM_CMD)
 COMMON_OPTIONS += $(OSCCAL_VALUE_CMD) $(VERSION_CMD) $(TIMEOUT_CMD)
 COMMON_OPTIONS += $(POR_CMD) $(EXTR_CMD) $(RS485_CMD)
 COMMON_OPTIONS += $(SYNC_UART_CMD) $(MASTERMODE_CMD) $(CLOCK_POLARITY_CMD)
+COMMON_OPTIONS += $(ENABLE_LOW_BAUD_CMD)
 
 #UART is handled separately and only passed for devices with more than one.
 HELPTEXT += "Option UART=n                - use UARTn for communications\n"
