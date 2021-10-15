@@ -803,15 +803,15 @@ int main(void) {
       #if (MASTERMODE == 1)
         UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
       #endif
-      //UCSRA &= ~_BV(U2X); // Disable double speed mode (should already be zero
-      UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
-      UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0) | _BV(UMSEL) // config USART; 8N1; synchronous mode
+      UBRRL = (uint8_t)BAUD_SETTING;
+      UCSRC = _BV(URSEL) | _BV(UCSZ1) | _BV(UCSZ0) | _BV(UMSEL); // config USART; 8N1; synchronous mode
       #if (UART_CLOCK_POLARITY == 1)
-        | _BV(UCPOL); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
+        UCSRC |= _BV(UCPOL); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
       #else
       ; // (UCPOL unset) TXDn: Rising XCKn Edge; RXDn: Falling XCKn Edge
       #endif
-      UBRRL = (uint8_t)BAUD_SETTING;
+      //UCSRA &= ~_BV(U2X); // Disable double speed mode (should already be zero
+      UCSRB = _BV(RXEN) | _BV(TXEN);  // enable Rx & Tx
     #else // mega8/etc
       #ifdef LIN_UART
         #error device does not support synchronous uart mode SYNC_UART
@@ -819,15 +819,15 @@ int main(void) {
         #if (MASTERMODE == 1)
           UART_XCK_DDR |= _BV(UART_XCK_BIT); // set XCK pin to output
         #endif
-        //UART_SRA &= ~_BV(U2X0); // Disable double speed mode (should already be zero)
-        UART_SRB = _BV(RXEN0) | _BV(TXEN0);
+        UART_SRL = (uint8_t)BAUD_SETTING;
         UART_SRC = _BV(UCSZ00) | _BV(UCSZ01) | _BV(UMSEL00) // config USART; 8N1; synchronous mode
         #if (UART_CLOCK_POLARITY == 1)
           | _BV(UCPOL0); // TXDn: Falling XCKn Edge; RXDn: Rising XCKn Edge
         #else
         ; // (UCPOL0 unset) TXDn: Rising XCKn Edge; RXDn: Falling XCKn Edge
         #endif
-        UART_SRL = (uint8_t)BAUD_SETTING;
+        //UART_SRA &= ~_BV(U2X0); // Disable double speed mode (should already be zero)
+        UART_SRB = _BV(RXEN0) | _BV(TXEN0);
       #endif // LIN_UART
     #endif // mega8/etc
 
